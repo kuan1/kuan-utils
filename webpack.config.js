@@ -4,7 +4,7 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    library: 'util',
+    library: 'utils',
     libraryTarget: "umd"
   },
   module: {
