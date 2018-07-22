@@ -7,6 +7,7 @@ const config = merge(base, {
   context: path.resolve(__dirname, '../'),
   entry: './src/lib',
   output: {
+    path: path.resolve(__dirname, '..', 'lib'),
     filename: 'kuan-utils.min.js',
     library: 'utils',
     libraryTarget: 'umd'

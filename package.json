@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/kuan1/kuan-utils#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "xlsx": "^0.13.2"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
     "cross-env": "^5.2.0",
     "eslint": "^5.1.0",

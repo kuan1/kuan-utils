@@ -1,15 +1,28 @@
 /**
- *
+ * @desc   判断浏览器类型
+ * @return {Boolean}
+ */
+let userAgent = '';
+if (typeof navigator !== 'undefined') {
+  userAgent = navigator.userAgent.toLowerCase();
+}
+
+// ios浏览器
+export const isiOS = userAgent.indexOf('applewebkit') >= 0;
+
+// 微信浏览器
+export const isWx = userAgent.indexOf('micromessenger') > -1;
+
+// 支付宝
+export const isAliPay = userAgent.indexOf('alipayclient') >= 0;
+
+/**
  * @desc   判断是否pc页面
  * @return {Boolean}
  */
-export function isPc() {
-  if (typeof navigator === 'undefined') return false
-  return !(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent));
-}
+export const isPc = !(/Android|webOS|iPhone|iPod|BlackBerry/i.test(userAgent));
 
 /**
- *
  * @desc   判断是否为手机号
  * @param  {String|Number} str
  * @return {Boolean}
@@ -19,7 +32,15 @@ function isPhone(str) {
 }
 
 /**
- *
+ * @desc   判断是否是数字
+ * @param  {String|Number} str
+ * @return {Boolean}
+ */
+export function isNum(str) {
+  return /^[0-9]+([.]{1}[0-9]+){0,1}$/.test(str);
+}
+
+/**
  * @desc   判断是否为邮箱地址
  * @param  {String}  str
  * @return {Boolean}
