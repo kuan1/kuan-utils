@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const config = merge(base, {
   context: path.resolve(__dirname, '../'),
   output: {
-    path: path.resolve(__dirname, '..', 'demo'),
+    path: path.resolve(__dirname, '..', 'test'),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -15,7 +15,7 @@ const config = merge(base, {
       template: 'index.html',
       inject: true
     }),
-    new CleanWebpackPlugin(['demo'], {root: path.resolve(__dirname, '..')})
+    new CleanWebpackPlugin(['test'], {root: path.resolve(__dirname, '..')})
     // ,
     // new webpack.DefinePlugin({
     //   'process.env': {
