@@ -1,64 +1,62 @@
-// cookie
-import getCookie from './lib/cookie/getCookie';
-import setCookie from './lib/cookie/setCookie';
-import removeCookie from './lib/cookie/removeCookie';
+// 测试使用页面
 
-// device
-import isPc from './lib/device/isPc';
+/* eslint-disable */
+import {cookie, timeUtils, copy} from './lib'
+import jsonToExcel from './lib/jsonToExcel'
 
-// url
-import getQueryString from './lib/url/getQueryString';
-import parseQueryString from './lib/url/parseQueryString';
-import stringfyQueryString from './lib/url/stringfyQueryString';
+const $ = (name) => {
+  return document.querySelector(name)
+}
 
-// time
-import formatPassTime from './lib/time/formatPassTime';
-import formatRemainTime from './lib/time/formatRemainTime';
+// 设置cookie
+$('#set-cookie').onclick = () => {
+  const name = 'aa'
+  const ipt = $('#cookie-input')
+  const val = ipt.value
+  cookie.setCookie(name, val, 1)
+  ipt.value = ''
+  alert('已保存')
+}
 
-// object
-import deepClone from './lib/object/deepClone';
-import isEmptyObject from './lib/object/isEmptyObject';
+$('#get-cookie').onclick = () => {
+  const name = 'aa'
+  $('#cookie-input').value = cookie.getCookie(name)
+}
 
-// random
-import randomColor from './lib/random/randomColor';
-import randomNum from './lib/random/randomNum';
+// 时间
+function setTestTime() {
+  // 多长时间之前
+  const time = $('#ago-time').textContent
+  $('#ago-text').innerHTML = timeUtils.timeAgo(new Date(time))
+  // 还有多长时间
+  const targetTime = $('#target-time').innerHTML
+  $('#remain-time').innerHTML = timeUtils.remainTime(new Date(targetTime))
+}
+setTestTime()
 
-// regexp
-import isEmail from './lib/regexp/isEmail';
-import isIdCord from './lib/regexp/isIdCard';
-import isPhoneNum from './lib/regexp/isPhoneNum';
-import isUrl from './lib/regexp/isUrl';
+// 剪切板
+$('#clipboard-btn').onclick = () => {
+  const {value} = $('#clipboard-input')
+  if (copy(value)) {
+    alert('复制成功')
+  } else {
+    alert('失败')
+  }
+}
 
-// listener
-import mousewheel from './lib/listener/mousewheel';
-
-// keycode
-import getKeyName from './lib/keycode/getKeyName';
-
-// function
-import debounce from './lib/function/debounce';
-import thorottle from './lib/function/throttle';
-
-export {
-  getCookie,
-  setCookie,
-  removeCookie,
-  isPc,
-  getQueryString,
-  parseQueryString,
-  stringfyQueryString,
-  formatPassTime,
-  formatRemainTime,
-  deepClone,
-  isEmptyObject,
-  randomColor,
-  randomNum,
-  isEmail,
-  isIdCord,
-  isPhoneNum,
-  isUrl,
-  mousewheel,
-  getKeyName,
-  debounce,
-  thorottle
-};
+// JSON to Excel
+$('#excelBtn').onclick = () => {
+  const data = {
+    a: 1,
+    b: 2,
+    c: 3
+  }
+  jsonToExcel({
+    header: {
+      a: '这是a',
+      b: '这是b',
+      c: '这是c'
+    },
+    data: [data]
+  })
+}
