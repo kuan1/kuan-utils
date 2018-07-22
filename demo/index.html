@@ -8,14 +8,19 @@
   <title>kuan-utils demo</title>
   <style>
     .container {
-      width: 90%;
+      width: 85%;
       margin: 0 auto;
     }
   </style>
 </head>
 <body>
-
 <div class="container">
+  <div class="item">
+    <h2>微信分享、微信支付 #略</h2>
+    <p> wxShare, wxPay</p>
+    <hr>
+  </div>
+
   <div class="item">
     <h2>工具类 #略</h2>
     <p>throttle,debounce,deepClone,randomColor</p>
@@ -25,6 +30,22 @@
   <div class="item">
     <h2>queryString #略</h2>
     <p>getQueryString,parseQueryString,stringfyQueryString</p>
+    <hr>
+  </div>
+
+  <div class="item">
+    <h2>localData #略</h2>
+    <p>对localStorage简单包装</p>
+    <pre>
+      <code>
+        /**
+        * 设置localStorage过期时间
+        * @param key{string}
+        * @param value{string}
+        * @param maxAge{number} 分钟 (默认30天)
+        */
+      </code>
+    </pre>
     <hr>
   </div>
 
@@ -58,13 +79,6 @@
     <button id="excelBtn">导出json</button>
   </div>
 </div>
-<script type="text/javascript" src="main.js"></script>
-<script>
 
-</script>
-</body>
-
-<script>
-
-</script>
+<script type="text/javascript" src="main.js"></script></body>
 </html>
