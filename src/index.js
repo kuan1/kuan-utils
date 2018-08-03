@@ -1,11 +1,30 @@
 // 测试使用页面
 
 /* eslint-disable */
-import {cookie, timeUtils, copy} from './lib'
+import {cookie, timeUtils, copy, media, download} from './lib'
 import jsonToExcel from './lib/jsonToExcel'
+
+const {recorder} = media
 
 const $ = (name) => {
   return document.querySelector(name)
+}
+
+// 前端录音功能
+window.stopRecord = async () => {
+  recorder.stop()
+}
+
+window.startRecording = async () => {
+  recorder.start()
+}
+
+window.obtainRecord = async () => {
+  download.downloadBlob('out.wav', recorder.getBlob())
+}
+
+window.playRecord = async () => {
+  recorder.play(document.querySelector('audio'))
 }
 
 // 设置cookie
@@ -32,6 +51,7 @@ function setTestTime() {
   const targetTime = $('#target-time').innerHTML
   $('#remain-time').innerHTML = timeUtils.remainTime(new Date(targetTime))
 }
+
 setTestTime()
 
 // 剪切板

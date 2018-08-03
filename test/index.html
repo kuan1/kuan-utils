@@ -15,12 +15,15 @@
 </head>
 <body>
 <div class="container">
-  <div class="item">
-    <h2>微信分享、微信支付 #略</h2>
-    <p> wxShare, wxPay</p>
-    <hr>
-  </div>
+  <div>
+    <h2>录音测试</h2>
+    <audio controls autoplay></audio>
+    <input type="button" value="开始录音" onClick="startRecording()"/>
+    <input type="button" value="获取录音" onClick="obtainRecord()"/>
+    <input type="button" value="停止录音" onClick="stopRecord()"/>
+    <input type="button" value="播放录音" onClick="playRecord()"/>
 
+  </div>
   <div class="item">
     <h2>工具类 #略</h2>
     <p>throttle,debounce,deepClone,randomColor</p>

@@ -13,7 +13,7 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-const PORT = 8088
+const PORT = 8089
 
 const webpackConfig = merge(common, {
   mode: 'development',
@@ -36,7 +36,7 @@ const webpackConfig = merge(common, {
     // hot: true,
     // inline: true,
     // contentBase: [path.join(__dirname, '../public'),],
-    port: process.env.PORT || 8088,
+    port: process.env.PORT || 8089,
     publicPath: '/',
     host: '0.0.0.0',
     openPage: '',
