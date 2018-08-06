@@ -16,7 +16,9 @@ window.stopRecord = async () => {
 }
 
 window.startRecording = async () => {
-  recorder.start()
+  recorder.start((info) => {
+    console.log(info)
+  })
 }
 
 window.obtainRecord = async () => {

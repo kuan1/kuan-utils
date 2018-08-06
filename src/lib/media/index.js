@@ -1,7 +1,7 @@
-import openCamera from './openCamera'
+import speaker from './speaker'
 import recorder from './recorder'
 
 export default {
-  openCamera,
+  speaker,
   recorder
 }

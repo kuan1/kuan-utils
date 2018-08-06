@@ -1,6 +1,6 @@
+// 引用于github
 import speaker from '../speaker'
 
-// 引用于github
 window.URL = window.URL || window.webkitURL
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
 const context = new (window.webkitAudioContext || window.AudioContext)()
