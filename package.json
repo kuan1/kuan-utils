@@ -6,8 +6,6 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --mode production --progress --config build/webpack.prod.conf.js",
-    "build:test": "cross-env NODE_ENV=production webpack --mode production --progress --config build/webpack.test.conf.js",
-    "prebuild": "npm run build:test",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -5,10 +5,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const config = merge(base, {
   context: path.resolve(__dirname, '../'),
-  entry: './src/lib',
   output: {
     path: path.resolve(__dirname, '..', 'lib'),
-    // filename: 'kuan-utils.min.js',
+    filename: 'kuan-utils.min.js',
     library: 'utils',
     libraryTarget: 'umd'
     // libraryExport: 'default'
@@ -48,7 +47,7 @@ const config = merge(base, {
     },
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], {root: path.resolve(__dirname, '..')})
+    new CleanWebpackPlugin(['lib'], {root: path.resolve(__dirname, '..')})
     // ,
     // new webpack.DefinePlugin({
     //   'process.env': {

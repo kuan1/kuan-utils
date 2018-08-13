@@ -1,1 +1,1 @@
-module.exports = require('./lib/kuan-utils.min')
+module.exports = require('./src')

@@ -1,5 +1,4 @@
 /**
- *
  * @desc 根据name读取cookie
  * @param  {String} name
  * @return {String}
@@ -16,7 +15,6 @@ export function getCookie(name) {
 }
 
 /**
- *
  * @desc  设置Cookie
  * @param {String} name
  * @param {String} value
@@ -29,7 +27,6 @@ export function setCookie(name, value, days = 1) {
 }
 
 /**
- *
  * @desc 根据name删除cookie
  * @param  {String} name
  */

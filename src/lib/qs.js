@@ -1,11 +1,12 @@
 /**
- * @desc   获取指定name参数
- * @param  {string} name
- * @return {string || null}
+ *
+ * @param name {string}
+ * @param search {string}  [a=1&b=2]
+ * @returns {string || null}
  */
-export function getQueryString(name) {
+export function get(name, search) {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
-  const r = window.location.search.substr(1).match(reg)
+  const r = (search || window.location.search.substr(1)).match(reg)
   if (r != null) return unescape(r[2])
   return null
 }
@@ -15,7 +16,7 @@ export function getQueryString(name) {
  * @param  {String} url  default: window.location.href
  * @return {Object}
  */
-export function parseQueryString(url) {
+export function parse(url) {
   url = url == null ? window.location.href : url
   const search = url.substring(url.lastIndexOf('?') + 1)
   if (!search) {
@@ -29,7 +30,7 @@ export function parseQueryString(url) {
  * @param  {Object} obj
  * @return {String}
  */
-export function stringfyQueryString(obj) {
+export function stringify(obj) {
   if (!obj) return ''
   const pairs = []
 
