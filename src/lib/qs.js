@@ -7,7 +7,7 @@
 export function get(name, search) {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
   const r = (search || window.location.search.substr(1)).match(reg)
-  if (r != null) return unescape(r[2])
+  if (r != null) return decodeURIComponent(r[2]) // unescape （w3c说一起用这个方法推荐使用decodeURI() 和 decodeURIComponent()）
   return null
 }
 
