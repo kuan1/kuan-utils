@@ -1,5 +1,5 @@
 // 获取全部utils
-import * as tools from './lib/tools' // 工具类
+import {throttle, debounce, deepClone, randomColor} from './lib/tools' // 工具类
 import * as qs from './lib/qs' // url参数
 import * as timeUtils from './lib/timeUtils' // 时间工具类
 import * as cookie from './lib/cookie' // cookie工具类
@@ -10,9 +10,12 @@ import download from './lib/download' // 下载
 import media from './lib/media'
 
 export {
-  tools,
-  qs,
-  localData,
+  throttle, // 函数节流
+  debounce, // 函数防抖
+  deepClone, // 深拷贝
+  randomColor, // 随机颜色
+  qs, // url参数
+  localData, // localStorage 简单封装
   cookie,
   timeUtils,
   copy,
