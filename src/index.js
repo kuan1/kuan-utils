@@ -1,5 +1,6 @@
 // 获取全部utils
 // import jsonToExcel from './lib/jsonToExcel' // 导出excel
+import createApi from './lib/createApi'
 import {throttle, debounce, deepClone, randomColor} from './lib/tools' // 工具类
 import * as qs from './lib/qs' // url参数
 import * as timeUtils from './lib/timeUtils' // 时间工具类
@@ -12,6 +13,7 @@ import media from './lib/media'
 
 export {
   // jsonToExcel,
+  createApi,
   throttle, // 函数节流
   debounce, // 函数防抖
   deepClone, // 深拷贝

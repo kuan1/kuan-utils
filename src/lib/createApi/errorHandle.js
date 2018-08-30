@@ -21,9 +21,9 @@ const getMessage = (status) => {
  * @param handleError {Function} 自定义错误处理
  * @param message {String} 后台返回错误信息
  */
-function errorHandle({error, Alert, handleError = () => {}, message}) {
-  const {status = {}} = error.response || {} // 状态吗
-  const msg = message || getMessage(status) // 提示信息
+function errorHandle({error, Alert, handleError = () => {}}) {
+  const {status = '', data = {}} = error.response || {} // 状态吗
+  const msg = data.info || getMessage(status) // 提示信息
   if (msg) {
     Alert(msg)
   }
