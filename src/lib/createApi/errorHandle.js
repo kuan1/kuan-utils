@@ -22,10 +22,11 @@ const getMessage = (status) => {
  * @param message {String} 后台返回错误信息
  */
 function errorHandle({error, Alert, handleError = () => {}}) {
-  const {status = '', data = {}} = error.response || {} // 状态吗
+  const {status = '', config = {}, data = {}} = error.response || {} // 状态吗
   const msg = data.info || getMessage(status) // 提示信息
+  const errorMsg = !status ? '网络超时' : `${status}: ${msg}`
   if (msg) {
-    Alert(msg)
+    Alert(`${config.url || ''}： ${errorMsg}`)
   }
   handleError(status, msg, error) // 自定义错误处理
 }
