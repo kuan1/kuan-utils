@@ -1,4 +1,4 @@
-import {createApi} from '../'
+import {createApi} from '../../src/index'
 
 const request = createApi({
   options: {

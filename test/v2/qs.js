@@ -1,4 +1,4 @@
-import {qs} from '../../index'
+import {qs} from '../../src/index'
 
 console.log('%c 测试qs：', 'color: red; font-weight: bold')
 

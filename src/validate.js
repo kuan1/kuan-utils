@@ -74,7 +74,9 @@ export function isUrl(str) {
  */
 export function isImage(url) {
   if (!url) return false
-  const suffix = url.substr(url.lastIndexOf('.') + 1)
+  const index = url.lastIndexOf('.')
+  if (index === -1) return false
+  const suffix = url.substr(index + 1)
   const str = suffix.substr(0, suffix.indexOf('?'))
 
   return /png|gif|svg|jpg|icon|jpeg]/i.test(str)
