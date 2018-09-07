@@ -28,13 +28,13 @@ export function getLocalData(key) {
   }
 }
 
-// 创建localStorage缓存，用于用户信息
+// 创建localStorage缓存,有效时间默认1天，用于用户信息
 export function createCache(key, maxAge = 60 * 24) {
   return {
-    getCache() {
+    get() {
       return getLocalData(key)
     },
-    saveCache(userInfo) {
+    set(userInfo) {
       setLocalData(key, userInfo, maxAge)
     }
   }
