@@ -4,11 +4,9 @@
 import { notification } from 'antd'
 import { routerRedux } from 'dva/router'
 
-import createApi from '../kuan-utils/createApi'
-import { getToken } from '../authority'
-import store from '../../index'
-
-const wareRoomId = 'wareRoomId'
+import createApi from './kuan-utils/createApi'
+import { getToken } from './authority'
+import store from '../index'
 
 // http请求封装
 const request = createApi({
@@ -18,12 +16,12 @@ const request = createApi({
       'X-Halo-App': 'yuncang-dashboard',
     },
   },
-  getHeaders() {
+  getHeaders() { // 动态设置headers
     return {
       'X-Wareroom-Id': store.getState().login.wareRoomId,
       token: getToken()
     }
-  }, // 动态设置headers
+  },
   Alert(message) { // 提示错误
     notification.error({
       message,
@@ -38,17 +36,15 @@ const request = createApi({
       })
       return
     }
-    if (status === 403) {
-      dispatch(routerRedux.push('/exception/403'))
-      return
+    if (process.env.NODE_ENV !== 'development') {
+      if (status === 403) {
+        dispatch(routerRedux.push('/exception/403'))
+        return
+      }
+      if (status <= 504 && status >= 500) {
+        dispatch(routerRedux.push('/exception/500'))
+      }
     }
-    if (status <= 504 && status >= 500) {
-      dispatch(routerRedux.push('/exception/500'))
-      // return
-    }
-    // if (status >= 404 && status < 422) {
-    //   dispatch(routerRedux.push('/exception/404'))
-    // }
   },
 })
 
