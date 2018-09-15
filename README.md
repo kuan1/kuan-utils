@@ -1,6 +1,4 @@
-# 个人工具类
-> 微信分享，验证，时间，cookie操作，复制，导出excel等常用工具类
+# kuan-utils
+> 个人工具类整理
 
 #### 具体使用（请看src/lib） 略
-
-> jsonToExcel需要单独引入

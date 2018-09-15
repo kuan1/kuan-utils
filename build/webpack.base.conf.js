@@ -1,4 +1,6 @@
 const path = require('path');
+const webpack = require('webpack')
+const WebpackBar = require('webpackbar');
 
 function resolve(dir) {
   return path.join(__dirname, '../', dir);
@@ -32,10 +34,10 @@ module.exports = {
           name: 'images/[name].[ext]?[hash]',
         },
       },
-      // {
-      //   test: /\.(scss|css)$/,
-      //   use: ['style-loader', 'css-loader', 'sass-loader'],
-      // },
+      {
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ],
   },
   resolve: {
@@ -44,6 +46,14 @@ module.exports = {
       '@': resolve('src'),
     },
   },
+  plugins: [
+    new WebpackBar(),
+    new webpack.DefinePlugin({
+      'PACK_NAME': {
+        NODE_ENV: `"${JSON.stringify(process.env.npm_package_name)}"`
+      }
+    })
+  ],
   performance: {
     maxEntrypointSize: 300000,
     hints: isDev ? false : 'warning',
