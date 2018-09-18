@@ -1,4 +1,5 @@
 import echarts from 'echarts'
+import './Bmap'
 
 import './echartsMap.scss'
 
