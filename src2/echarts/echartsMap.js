@@ -11,9 +11,9 @@ function init(data, id = 'echarts-container') {
 function getOptions(echartsData) {
   return {
     title: {
-      text: '去昂过人事',
-      subtext: 'data from PM25.in',
-      sublink: 'http://www.pm25.in',
+      text: '地图',
+      subtext: '别忘了请吃饭',
+      sublink: '', // todo
       left: 'center',
       textStyle: {
         color: '#fff'
