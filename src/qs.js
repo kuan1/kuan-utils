@@ -18,11 +18,20 @@ export function get(name, search) {
  */
 export function parse(url) {
   url = url == null ? window.location.href : url
-  const search = url.substring(url.lastIndexOf('?') + 1)
+  const search = url.includes('?')
+    ? url.substring(url.lastIndexOf('?') + 1)
+    : ''
   if (!search) {
     return {}
   }
-  return JSON.parse('{"' + decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}')
+  return JSON.parse(
+    '{"' +
+      decodeURIComponent(search)
+        .replace(/"/g, '\\"')
+        .replace(/&/g, '","')
+        .replace(/=/g, '":"') +
+      '"}'
+  )
 }
 
 /**
@@ -39,7 +48,11 @@ export function stringify(obj) {
 
     if (value instanceof Array) {
       for (let i = 0; i < value.length; ++i) {
-        pairs.push(encodeURIComponent(key + '[' + i + ']') + '=' + encodeURIComponent(value[i]))
+        pairs.push(
+          encodeURIComponent(key + '[' + i + ']') +
+            '=' +
+            encodeURIComponent(value[i])
+        )
       }
       continue
     }
