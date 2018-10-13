@@ -1,4 +1,14 @@
-## 使用demo
+## config 新增 alert、alertDetail 参数
+
+```
+  request({
+    url: '',
+    alert: false, // 默认true
+    alertDetail: true // 默认false
+  })
+```
+
+## 使用 demo
 
 ```
 import { notification } from 'antd'
@@ -49,5 +59,4 @@ const request = createApi({
 })
 
 export default request
-
 ```

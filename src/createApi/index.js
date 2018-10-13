@@ -30,8 +30,12 @@ const getMessage = status => {
 function errorHandle({ error, Alert, handleError = () => {} }) {
   const { status = '', config = {}, data = {} } = error.response || {} // 状态吗
   const msg = status ? data.info || getMessage(status) : '网络超时' // 提示信息
-  if (msg) {
-    Alert(`${status} ${config.url || ''}：\n ${msg}`)
+  if (msg && alert !== false) {
+    const errorMsg =
+      config.alertDetail === true
+        ? `${status} ${config.url || ''}：\n ${msg}`
+        : msg
+    Alert(errorMsg)
   }
   handleError(status, msg, error) // 自定义错误处理
 }
