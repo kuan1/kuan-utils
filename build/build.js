@@ -23,7 +23,7 @@ async function buildAll() {
     console.log(chalk.red(`${libName}编译开始...`))
     const options = {
       entry: resolve(`src/${libName}`),
-      libName: libName === 'index.js' ? 'kuan-utils' : libName,
+      libName: libName === 'index.js' ? 'kuan-utils' : libName.replace('.js', ''),
       distPath: resolve('lib')
     }
     await build(options)
