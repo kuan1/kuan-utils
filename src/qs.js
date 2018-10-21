@@ -62,3 +62,9 @@ export function stringify(obj) {
 
   return pairs.join('&')
 }
+
+export default {
+  get,
+  parse,
+  stringify
+}

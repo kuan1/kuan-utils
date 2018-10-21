@@ -35,6 +35,7 @@ export function createCache(key, maxAge = 60 * 24) {
       return getLocalData(key)
     },
     set(userInfo) {
+      console.log(maxAge)
       setLocalData(key, userInfo, maxAge)
     }
   }

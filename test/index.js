@@ -1,16 +1,8 @@
-import Upload from '../src2/echarts/UploadExcel.js'
-import echartsMap from '../src2/echarts/echartsMap.js'
+console.log('测试开始...')
+import { xlsx } from '../src'
 
-const prepareData = (data) => {
-  return data.map(({iyear, latitude, longitude}) => ({
-    name: '',
-    value: [longitude, latitude]
-  }))
-}
-
-new Upload(function(data) {
-  this.hide()
-  const echartsData = prepareData(data)
-  console.log(echartsData)
-  echartsMap.init(echartsData)
+xlsx.JSONToExcel({
+  name: '测试',
+  data: [{ a: 1, b: 2 }, { a: 2, b: 3 }],
+  header: { a: '哈哈', b: '吼吼' }
 })

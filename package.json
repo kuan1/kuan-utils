@@ -1,12 +1,11 @@
 {
   "name": "kuan-utils",
-  "version": "1.1.3",
+  "version": "1.1.2",
   "description": "",
   "main": "lib/kuan-utils.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=production webpack --mode production --progress --config build/webpack.prod.conf.js",
-    "build:demo": "cross-env NODE_ENV=production webpack --mode production --progress --config build/webpack.demo.conf.js",
+    "dev": "node build/dev",
+    "build": "node build/build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,42 +22,11 @@
     "url": "https://github.com/kuan1/kuan-utils/issues"
   },
   "homepage": "https://github.com/kuan1/kuan-utils#readme",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "echarts": "^4.2.0-rc.1",
-    "node-sass": "^4.9.3",
-    "webpackbar": "^2.6.3",
-    "xlsx": "^0.13.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-preset-stage-3": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.2",
-    "cross-env": "^5.2.0",
-    "css-loader": "^1.0.0",
-    "eslint": "^5.1.0",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-friendly-formatter": "^4.0.1",
-    "eslint-loader": "^2.1.0",
-    "eslint-plugin-html": "^4.0.5",
-    "eslint-plugin-import": "^2.13.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "html-webpack-plugin": "^3.2.0",
-    "portfinder": "^1.0.13",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.21.0",
-    "uglifyjs-webpack-plugin": "^2.0.0",
-    "webpack": "^4.16.1",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-merge": "^4.1.3",
-    "webpack-node-externals": "^1.7.2"
+    "chalk": "^2.4.1",
+    "kuan-pack": "^1.0.10",
+    "rimraf": "^2.6.2",
+    "xlsx": "^0.14.0"
   }
 }

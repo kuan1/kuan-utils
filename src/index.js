@@ -1,27 +1,13 @@
-// 获取全部utils
-import { throttle, debounce, deepClone, randomColor } from './utils' // 工具类
-import createApi from './createApi'
-import localData from './localData'
-import * as qs from './qs'
-import * as cookie from './cookie'
-import * as time from './time'
-import * as math from './math'
-import copy from './copy'
-import download from './download'
-import * as validate from './validate'
-
-export {
-  localData, // localStorage工具类 *
-  cookie, // cookie工具类 *
-  validate, // 验证
-  qs, // url参数 *
-  throttle, // 函数节流
-  debounce, // 函数防抖
-  deepClone, // 深拷贝
-  randomColor, // 随机颜色
-  createApi, // http
-  time, // 时间处理
-  math, // js精度计算
-  copy, // copy
-  download // 下载
-}
+export { default as qs } from './qs' // qs
+export { default as localData } from './localData' // localStorage util
+export { default as cookieUtil } from './cookieUtil' // cookit util
+export { default as deepClone } from './deepClone' // deep clone
+export { default as downloadUtil } from './downloadUtil' // download util
+export { default as copy } from './copy' // copy fn
+export { default as mathUtil } from './mathUtil' // Accuracy of calculation
+export { default as throttle } from './throttle' // throttle fn
+export { default as debounce } from './debounce' // debounce fn
+export { default as randomColor } from './randomColor' // random color
+export { default as formatCurrency } from './formatCurrency' // currency format
+export { default as validate } from './validate' // validate util
+export { default as xlsx } from './xlsx' // excel

@@ -1,41 +1,39 @@
 export default input => {
-  const el = document.createElement('textarea');
+  const el = document.createElement('textarea')
 
-  el.value = input;
+  el.value = input
 
-  // Prevent keyboard from showing on mobile
-  el.setAttribute('readonly', '');
+  el.setAttribute('readonly', '')
 
-  el.style.contain = 'strict';
-  el.style.position = 'absolute';
-  el.style.left = '-9999px';
-  el.style.fontSize = '12pt'; // Prevent zooming on iOS
+  el.style.contain = 'strict'
+  el.style.position = 'absolute'
+  el.style.left = '-9999px'
+  el.style.fontSize = '12pt'
 
-  const selection = document.getSelection();
-  let originalRange = false;
+  const selection = document.getSelection()
+  let originalRange = false
   if (selection.rangeCount > 0) {
-    originalRange = selection.getRangeAt(0);
+    originalRange = selection.getRangeAt(0)
   }
 
-  document.body.appendChild(el);
-  el.select();
+  document.body.appendChild(el)
+  el.select()
 
-  // Explicit selection workaround for iOS
-  el.selectionStart = 0;
-  el.selectionEnd = input.length;
+  el.selectionStart = 0
+  el.selectionEnd = input.length
 
-  let success = false;
+  let success = false
   try {
-    success = document.execCommand('copy');
+    success = document.execCommand('copy')
     /* eslint-disable */
   } catch (err) {}
 
-  document.body.removeChild(el);
+  document.body.removeChild(el)
 
   if (originalRange) {
-    selection.removeAllRanges();
-    selection.addRange(originalRange);
+    selection.removeAllRanges()
+    selection.addRange(originalRange)
   }
 
-  return success;
-};
+  return success
+}
