@@ -15,7 +15,6 @@ const build = options => new Promise(resolve => buildLib(options, resolve))
 buildAll()
 async function buildAll() {
   console.log(chalk.red.bold('清空目录...'))
-
   rimraf.sync(resolve('lib'))
 
   const targets = fileDisplay(resolve('src'))
@@ -23,7 +22,7 @@ async function buildAll() {
     const libName = targets[i]
     console.log(chalk.red(`${libName}编译开始...`))
     const options = {
-      entry: resolve('src', libName),
+      entry: resolve(`src/${libName}`),
       libName: libName === 'index.js' ? 'kuan-utils' : libName,
       distPath: resolve('lib')
     }

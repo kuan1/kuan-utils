@@ -21,7 +21,12 @@ npm run publish || yarn publish
 
 ## 更新日志
 
-1.2.0
+1.2.1
+
+- build 单个文件路径错误
+- 默认去除 xlsx, 减小包大小，不过可以单独引入
+
+  1.2.0
 
 - 使用 kuan-pack 编译
 - 解构重新整理

@@ -10,7 +10,7 @@ export { default as debounce } from './debounce' // debounce fn
 export { default as randomColor } from './randomColor' // random color
 export { default as formatCurrency } from './formatCurrency' // currency format
 export { default as validate } from './validate' // validate util
-export { default as xlsx } from './xlsx' // excel
+// export { default as xlsx } from './xlsx' // excel
 export { default as loadImages } from './loadImages' // preload images
 export { default as byteSize } from './byteSize' // preload images
 export { scrollToTop } from './scrollTo' // window scrollTop transition
