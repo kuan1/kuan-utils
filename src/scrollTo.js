@@ -13,7 +13,6 @@ export function scrollTo(top = 0) {
   if (Math.abs(distance) / 8 < 1) {
     y = c - (distance < 0 ? -1 : 1)
   }
-  console.log(y)
 
   window.scrollTo(0, y)
   window.requestAnimationFrame(() => {
