@@ -2,13 +2,13 @@
  * 预加载图片
  * @params {array} images 图片地址
  */
-export default function loadImages(images = []) {
+export default function loadImages(srcArr = []) {
   return new Promise(resolve => {
+    const images = [...new Set(srcArr)]
     const loaded = []
-
     function push() {
       loaded.push(this.src)
-      if (loaded.length == images.length) {
+      if (loaded.length === images.length) {
         resolve(loaded)
       }
     }
