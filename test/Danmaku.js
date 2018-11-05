@@ -83,7 +83,9 @@ class Danmaku {
   }
 
   /**
-   * @param {Object Array} dan - {text, color, type}
+   *
+   *  @param {Object Array} dan - {text, color, type}
+   *
    * text - danmaku content
    * color - danmaku color, default: `#fff`
    * type - danmaku type, `right` `top` `bottom`, default: `right`
@@ -278,16 +280,12 @@ class Danmaku {
     this.showing = false
     this.pause()
     this.clear()
-
-    this.events && this.events.trigger('danmaku_hide')
   }
 
   show() {
     this.seek()
     this.showing = true
     this.play()
-
-    this.events && this.events.trigger('danmaku_show')
   }
 
   unlimit(boolean) {
