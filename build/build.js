@@ -19,12 +19,17 @@ async function buildAll() {
 
   const targets = fileDisplay(resolve('src'))
   for (let i = 0; i < targets.length; i++) {
-    const libName = targets[i]
+    const libName = targets[i].substr(1)
+    if (libName[0] === '.') continue
     console.log(chalk.red(`${libName}编译开始...`))
     const options = {
       entry: resolve(`src/${libName}`),
-      libName: libName === 'index.js' ? 'kuan-utils' : libName.replace('.js', ''),
-      distPath: resolve('lib')
+      libName:
+        libName === 'index.js' ? 'kuan-utils' : libName.replace('.js', ''),
+      distPath: resolve('lib'),
+      disabledClean: true, // 是否自动清空dist
+      htmlTemplate: false,
+      extractCss: false
     }
     await build(options)
   }
