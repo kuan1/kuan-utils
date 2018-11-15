@@ -19,7 +19,7 @@ async function buildAll() {
 
   const targets = fileDisplay(resolve('src'))
   for (let i = 0; i < targets.length; i++) {
-    const libName = targets[i].substr(1)
+    const libName = targets[i]
     if (libName[0] === '.') continue
     console.log(chalk.red(`${libName}编译开始...`))
     const options = {
