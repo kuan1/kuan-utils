@@ -16,7 +16,7 @@ export function scrollTo(top = 0) {
 
   window.scrollTo(0, y)
   window.requestAnimationFrame(() => {
-    scrollToTop(top)
+    scrollTo(top)
   })
 }
 
