@@ -1,4 +1,4 @@
-export function scrollTo(top = 0) {
+export function scrollToTranstion(top = 0) {
   const c = document.documentElement.scrollTop || document.body.scrollTop
   // if (c > 0) {
   //   const y = c - c / 8
@@ -16,12 +16,12 @@ export function scrollTo(top = 0) {
 
   window.scrollTo(0, y)
   window.requestAnimationFrame(() => {
-    scrollTo(top)
+    scrollToTranstion(top)
   })
 }
 
 export function scrollToTop() {
-  scrollTo(0)
+  scrollToTranstion(0)
 }
 
-export default scrollTo
+export default scrollToTranstion
