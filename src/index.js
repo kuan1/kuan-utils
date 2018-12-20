@@ -15,3 +15,4 @@ export { default as loadImages } from './loadImages' // preload images
 export { default as byteSize } from './byteSize' // preload images
 export { scrollToTop } from './scrollTo' // window scrollTop transition
 export { default as scrollTo } from './scrollTo' // window scrollTop transition
+export { default as wxShare } from './wxShare' // wx share

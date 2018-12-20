@@ -1,7 +1,4 @@
 process.env.NODE_ENV = 'production'
-process.env.EXTRACT_CSS = '0'
-process.env.DISCARD_HTML = '0'
-process.env.DISABLE_CLEAN = '0'
 
 const rimraf = require('rimraf')
 const chalk = require('chalk')
