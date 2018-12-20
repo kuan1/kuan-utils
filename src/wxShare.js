@@ -25,7 +25,6 @@ function loadWechatJSSDK() {
 
 // 获取分享配置
 async function getConfig() {
-  await loadWechatJSSDK()
   const href = window.location.href.split('#')[0]
   const { data } = await axios({
     url: `//api.luzhongkuan.cn/wx/share?url=${encodeURIComponent(href)}`
@@ -39,6 +38,7 @@ async function getConfig() {
 // 分享内容，分享配置
 export default async (userShareData, userConfig) => {
   if (!isWx) return
+  await loadWechatJSSDK()
   const defaultShare = {
     title: '没有标题', // 分享标题
     desc: '这里没有描述', // 分享描述
