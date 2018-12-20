@@ -21,7 +21,11 @@ npm run publish || yarn publish
 
 ## 更新日志
 
-1.2.2
+1.2.8
+
+- 加入微信分享
+
+  1.2.2
 
 - fix lib 名字
 
