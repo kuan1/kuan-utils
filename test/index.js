@@ -1,7 +1,8 @@
-import share from '../src/wxShare'
+import fileUploader from '../src/uploader'
 
-share({
-  title: '自定义标题',
-  desc: '自定义内容',
-  imgUrl: 'https://www.baidu.com/img/bd_logo1.png?where=super'
-})
+async function test() {
+  const res = await fileUploader.getFile()
+  console.log(res)
+}
+
+window.test = test
