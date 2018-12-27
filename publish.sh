@@ -1,9 +1,7 @@
-#!/usr/bin/env sh
+echo "start build ...";
 
 # abort on errors
-set -e
-
-echo "start build ...";
+set -e;
 
 npm run build ;
 git add . ;
