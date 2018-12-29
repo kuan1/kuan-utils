@@ -1,5 +1,6 @@
-const audioContext = new (window.AudioContext ||
-  window.webkitAudioContext)()
+// https://zhuanlan.zhihu.com/p/28745323
+
+const audioContext = new (window.AudioContext || window.webkitAudioContext)()
 
 function request(url) {
   return new Promise(resolve => {
