@@ -2,9 +2,9 @@
  * 设置localStorage过期时间
  * @param key{string}
  * @param value{string}
- * @param maxAge{number} 分钟 (默认30天)
+ * @param maxAge{number} 分钟 (默认7天)
  */
-export function setLocalData(key, value, maxAge = 1000 * 60 * 60 * 24 * 30) {
+export function setLocalData(key, value, maxAge = 60 * 24 * 7) {
   const data = {
     value,
     maxAge: maxAge * 60000,
@@ -27,6 +27,9 @@ export function getLocalData(key) {
     return null
   }
 }
+export function clearLocalData(key) {
+  localStorage.remove(key)
+}
 
 // 创建localStorage缓存,有效时间默认1天，用于用户信息
 export function createCache(key, maxAge = 60 * 24) {
@@ -35,8 +38,11 @@ export function createCache(key, maxAge = 60 * 24) {
       return getLocalData(key)
     },
     set(userInfo) {
-      console.log(maxAge)
+      console.log(`创建localStore有效时间：${maxAge}分钟`)
       setLocalData(key, userInfo, maxAge)
+    },
+    clear() {
+      localStorage.remove(key)
     }
   }
 }
@@ -44,5 +50,6 @@ export function createCache(key, maxAge = 60 * 24) {
 export default {
   get: getLocalData,
   set: setLocalData,
-  create: createCache
+  create: createCache,
+  clear: clearLocalData
 }
