@@ -1,4 +1,6 @@
+// export { default as xlsx } from './xlsx' // excel
 export { default as qs } from './qs' // qs
+export { default as filters } from './filters' // 过滤器
 export { default as localData } from './localData' // localStorage util
 export { default as cookieUtil } from './cookieUtil' // cookit util
 export { default as deepClone } from './deepClone' // deep clone
@@ -8,11 +10,9 @@ export { default as mathUtil } from './mathUtil' // Accuracy of calculation
 export { default as throttle } from './throttle' // throttle fn
 export { default as debounce } from './debounce' // debounce fn
 export { default as randomColor } from './randomColor' // random color
-export { default as formatCurrency } from './formatCurrency' // currency format
 export { default as validate } from './validate' // validate util
-// export { default as xlsx } from './xlsx' // excel
 export { default as loadImages } from './loadImages' // preload images
-export { default as byteSize } from './byteSize' // preload images
+export { default as byteSize } from './' // preload images
 export { scrollToTop } from './scrollTo' // window scrollTop transition
 export { default as scrollTo } from './scrollTo' // window scrollTop transition
 export { default as wxShare } from './wxShare' // wx share

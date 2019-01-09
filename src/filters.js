@@ -1,4 +1,37 @@
 /**
+ * @desc 获取字符串字节
+ * @param {*} str
+ * @returns {number}
+ */
+export function byteSize(str) {
+  return new Blob([str]).size
+}
+
+/**
+ * @desc html转化防止xs攻击
+ * @params str {string}
+ * @returns {string}
+ */
+export function htmlEncode(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2f;')
+}
+
+/**
+ * @desc 格式化货币
+ * @param num {string || number}
+ * @returns {string}
+ */
+export function formatCurrency(num) {
+  return (+num || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
+/**
  * @desc   格式化${startTime}距现在的已过时间
  * @param  {Date} startTime
  * @return {String}
