@@ -9,8 +9,8 @@ export function scrollToTranstion(top = 0) {
   const distance = c - top
   if (Math.abs(distance) < 1) return
 
-  let y = c - distance / 8
-  if (Math.abs(distance) / 8 < 1) {
+  let y = c - distance / 10
+  if (Math.abs(distance) / 10 < 1) {
     y = c - (distance < 0 ? -1 : 1)
   }
 
