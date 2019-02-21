@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "chalk": "^2.4.1",
-    "kuan-pack": "^1.1.4",
+    "kuan-pack": "^2.0.5",
     "rimraf": "^2.6.2",
     "spark-md5": "^3.0.0",
     "xlsx": "^0.14.0"
