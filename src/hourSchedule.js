@@ -3,7 +3,7 @@
  * @params scheduleList {Object} -> {0: [fn, fn], 2: [fn, fn]}
  * @class HourSchedule
  */
-class HourSchedule {
+module.exports = class HourSchedule {
   constructor(scheduleList = {}) {
     this.scheduleList = scheduleList // 所有整点任务
     this.timer = null
@@ -42,7 +42,7 @@ class HourSchedule {
    * @returns
    * @memberof HourSchedule
    */
-  leaveHour(num) {
+  leaveHour(num = 1) {
     const now = new Date()
     const y = now.getFullYear()
     const m = now.getMonth()
@@ -50,7 +50,7 @@ class HourSchedule {
     const h = now.getHours()
 
     return (
-      new Date(y, m, d, h, 0, 10).getTime() +
+      new Date(y, m, d, h, 0, 0).getTime() +
       num * 60 * 60 * 1000 -
       now.getTime()
     )
@@ -62,7 +62,16 @@ class HourSchedule {
    */
   start() {
     this.stop()
-    this.timer = setTimeout(() => {}, this.leaveHour())
+    const leave = this.leaveHour()
+    this.timer = setTimeout(
+      () => {
+        const h = new Date().getHours()
+        const list = this.scheduleList[h] || []
+        list.forEach(fn => fn())
+        this.start()
+      },
+      leave > 1000 ? leave : 1000
+    )
   }
 
   /**
