@@ -38,7 +38,7 @@ export function createCache(key, maxAge = 60 * 24) {
       return getLocalData(key)
     },
     set(userInfo) {
-      console.log(`创建localStore有效时间：${maxAge}分钟`)
+      console.log(`localStore存入${key}有效时间：${maxAge}分钟`)
       setLocalData(key, userInfo, maxAge)
     },
     clear() {
