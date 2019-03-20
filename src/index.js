@@ -14,5 +14,6 @@ export { default as validate } from './validate' // validate util
 export { default as loadImages } from './loadImages' // preload images
 export { default as scrollTo, scrollToTop } from './scrollTo' // window scrollTop transition
 export { default as wxShare } from './wxShare' // wx share
+export { default as moment } from './day'
 
 export { filters }

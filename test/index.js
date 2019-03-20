@@ -1,8 +1,2 @@
-import fileUploader from '../src/uploader'
-
-async function test() {
-  const res = await fileUploader.getFile()
-  console.log(res)
-}
-
-window.test = test
+import { moment } from '../src'
+console.log(moment.format('2019-10-20T23:10:20'))
