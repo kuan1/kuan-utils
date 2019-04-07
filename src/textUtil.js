@@ -114,7 +114,7 @@ export function insertAfterText(textDom, value) {
     var endPos = textDom.selectionEnd;
     var scrollTop = textDom.scrollTop;
     textDom.value = textDom.value.substring(0, startPos) + value + textDom.value.substring(endPos, textDom.value.length);
-    textDom.focus();
+    textDom.focus(); ``
     textDom.selectionStart = startPos + value.length;
     textDom.selectionEnd = startPos + value.length;
     textDom.scrollTop = scrollTop;
