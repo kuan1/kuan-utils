@@ -17,7 +17,10 @@ import throttle from 'kuan-utils/lib/throttle'
 
 ## 更新日志
 
-1.2.8
+  1.3.1
+- 光标控制
+
+  1.2.8
 
 - 加入微信分享
 
