@@ -27,7 +27,7 @@ function loadWechatJSSDK() {
 async function getConfig() {
   const href = window.location.href.split('#')[0]
   const { data } = await axios({
-    url: `//api.luzhongkuan.cn/wx/share?url=${encodeURIComponent(href)}`
+    url: `https://wwww.luzhongkuan.cn/api2/wx/shareConfig?url=${encodeURIComponent(href)}`
   })
   if (data.success) {
     return data.data
