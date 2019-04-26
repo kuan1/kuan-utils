@@ -2,26 +2,25 @@
 
 > 个人 js 工具类整理、具体使用（请看 src） 略
 
-## 使用
+## 安装
 
-```
+```bash
 yarn add kuan-utils
-
-// import {throttle} from 'kuan-utils'
-// import throttle from 'kuan-utils/lib/throttle'
+# or
+npm i kuan-utils -S
 ```
 
-## 发布
-
-```
-npm login
-
-npm run publish || yarn publish
+``` js
+import {throttle} from 'kuan-utils'
+import throttle from 'kuan-utils/lib/throttle'
 ```
 
 ## 更新日志
 
-1.2.8
+  1.3.1
+- 光标控制
+
+  1.2.8
 
 - 加入微信分享
 
