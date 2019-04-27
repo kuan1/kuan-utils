@@ -42,8 +42,7 @@ module.exports = class HourSchedule {
    * @returns
    * @memberof HourSchedule
    */
-  leaveHour(num = 1) {
-    const now = new Date()
+  leaveHour(num = 1, now) {
     const y = now.getFullYear()
     const m = now.getMonth()
     const d = now.getDate()
@@ -62,10 +61,14 @@ module.exports = class HourSchedule {
    */
   start() {
     this.stop()
-    const leave = this.leaveHour()
+    const now = new Date()
+    const leave = this.leaveHour(1, now)
     this.timer = setTimeout(
       () => {
         const h = new Date().getHours()
+        // 防止1小时后，定时器过快误差
+        if (h === now.getHours()) return this.start()
+
         const list = this.scheduleList[h] || []
         list.forEach(fn => fn())
         this.start()
