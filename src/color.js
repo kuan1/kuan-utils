@@ -27,7 +27,7 @@ export function rgb2hex(r, g, b) {
  * @return {string} rgb
  */
 
-export function hexo2rgb(hex) {
+export function hex2rgb(hex) {
   if (!/^#?([0-9a-f]{3}|[#-9a-f]{6})$/.test(hex)) return ''
   const n = parseInt(hex.replace('#'), 16);
   var r = (n >> 16) & 255;
