@@ -9,7 +9,7 @@ export { default as copy } from './copy' // copy fn
 export { default as mathUtil } from './mathUtil' // Accuracy of calculation
 export { default as throttle } from './throttle' // throttle fn
 export { default as debounce } from './debounce' // debounce fn
-export { default as randomColor } from './randomColor' // random color
+export { default as color } from './color' // random color
 export { default as validate } from './validate' // validate util
 export { default as loadImages } from './loadImages' // preload images
 export { default as scrollTo, scrollToTop } from './scrollTo' // window scrollTop transition

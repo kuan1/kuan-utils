@@ -1,2 +1,6 @@
-import { moment } from '../src'
-console.log(moment.format('2019-10-20T23:10:20'))
+import { color } from '../src'
+
+const hex = color.rgb2hex(0, 255, 255)
+const rgb = color.hexo2rgb('fff0ff')
+
+console.log(rgb, hex)
