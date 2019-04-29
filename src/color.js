@@ -1,4 +1,4 @@
-import { EPERM } from "constants";
+import { EPERM } from 'constants'
 
 /**
  * @desc 随机生成颜色
@@ -11,9 +11,9 @@ export function random() {
 }
 /**
  * rgb to hex
- * @param {Number} r 
- * @param {Number} g 
- * @param {Number} b 
+ * @param {Number} r
+ * @param {Number} g
+ * @param {Number} b
  * @return {string} hex
  */
 export function rgb2hex(r, g, b) {
@@ -29,14 +29,19 @@ export function rgb2hex(r, g, b) {
 
 export function hex2rgb(hex) {
   if (!/^#?([0-9a-f]{3}|[#-9a-f]{6})$/.test(hex)) return ''
-  const n = parseInt(hex.replace('#'), 16);
-  var r = (n >> 16) & 255;
-  var g = (n >> 8) & 255;
-  var b = n & 255;
-
-  return r + "," + g + "," + b;
+  let str = hex.replace('#', '')
+  if (str.length === 3) {
+    str = str
+      .split('')
+      .map(v => v + v)
+      .join('')
+  }
+  const n = parseInt(str, 16)
+  const r = (n >> 16) & 255
+  const g = (n >> 8) & 255
+  const b = n & 255
+  return r + ',' + g + ',' + b
 }
-
 export default {
   random,
   rgb2hex,
