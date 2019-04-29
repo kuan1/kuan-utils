@@ -76,7 +76,6 @@ module.exports = class HourSchedule {
       leave > 1000 ? leave : 1000
     )
   }
-
   /**
    * 停止定时任务
    * @memberof HourSchedule
