@@ -26,7 +26,6 @@ export function rgb2hex(r, g, b) {
  * @param {string} hex
  * @return {string} rgb
  */
-
 export function hex2rgb(hex) {
   if (!/^#?([0-9a-f]{3}|[#-9a-f]{6})$/.test(hex)) return ''
   let str = hex.replace('#', '')
