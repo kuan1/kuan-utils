@@ -1,6 +1,17 @@
-import { color } from '../src'
+import Crontab from '../src/Crontab.js'
 
-const hex = color.rgb2hex(0, 255, 255)
-const rgb = color.hexo2rgb('fff0ff')
+const list = [
+  {
+    name: '测试任务1',
+    time: ['*', '*', '*', '*', '*'],
+    once: true,
+    task: () => {}
+  },
+  {
+    name: '测试任务2',
+    time: ['*', '*', '*', '*', '*'],
+    task: () => {}
+  }
+]
 
-console.log(rgb, hex)
+new Crontab(list)
