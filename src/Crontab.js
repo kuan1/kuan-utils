@@ -95,6 +95,11 @@ export default class Crontab {
     return isEqual
   }
 }
+
+/**
+ * time ['分', '时', '天', '月', '星期']
+ * */
+
 // const list = [
 //   {
 //     name: '测试任务1',
