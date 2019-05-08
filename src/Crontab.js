@@ -52,7 +52,12 @@ export default class Crontab {
         this.log(`\n${format(nowTime[1])}:${format(nowTime[0])}`)
         this.log(`${name} 开始执行 ...`)
 
-        task()
+        try {
+          task()
+        } catch (e) {
+          this.log(e)
+        }
+
         this.log(`${name} 执行完成`)
 
         if (once) {
