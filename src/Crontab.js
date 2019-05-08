@@ -3,15 +3,6 @@
  * @params list {Array}
  */
 
-// [
-//   {
-//     name: '任务名字',
-//     time: ['分', '时', '天', '月', '星期'],
-//     task: fn,
-//     once: false
-//   }
-// ]
-
 export default class Crontab {
   constructor(list = [], { isDebug = true, autoStart = true } = {}) {
     this.isDebug = isDebug // 是否是debug模式
@@ -104,3 +95,18 @@ export default class Crontab {
     return isEqual
   }
 }
+// const list = [
+//   {
+//     name: '测试任务1',
+//     time: ['*', '*', '*', '*', '*'],
+//     once: true,
+//     task: () => {}
+//   },
+//   {
+//     name: '测试任务2',
+//     time: ['*', '*', '*', '*', '*'],
+//     task: () => {}
+//   }
+// ]
+
+// new Crontab(list)
