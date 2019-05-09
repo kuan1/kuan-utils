@@ -27,7 +27,9 @@ function loadWechatJSSDK() {
 async function getConfig() {
   const href = window.location.href.split('#')[0]
   const { data } = await axios({
-    url: `https://wwww.luzhongkuan.cn/api2/wx/shareConfig?url=${encodeURIComponent(href)}`
+    url: `//www.luzhongkuan.cn/api2/wx/shareConfig?url=${encodeURIComponent(
+      href
+    )}`
   })
   if (data.success) {
     return data.data
@@ -40,8 +42,8 @@ export default async (userShareData, userConfig) => {
   if (!isWx) return
   await loadWechatJSSDK()
   const defaultShare = {
-    title: '没有标题', // 分享标题
-    desc: '这里没有描述', // 分享描述
+    title: document.title, // 分享标题
+    desc: '没有描述...', // 分享描述
     link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
     imgUrl: 'http://lib.luzhongkuan.cn/images/logo.png' // 分享图标
   }
