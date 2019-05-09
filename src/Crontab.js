@@ -53,7 +53,6 @@ export default class Crontab {
 
         if (once) {
           this.remove(name)
-        } else {
         }
       }
     })
