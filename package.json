@@ -1,6 +1,6 @@
 {
   "name": "kuan-utils",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "",
   "main": "lib/kuan-utils.js",
   "scripts": {
