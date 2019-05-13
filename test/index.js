@@ -1,4 +1,4 @@
-import wxShare from '../src/wxShare'
+import { wxShare } from '../src'
 // import axios from 'axios'
 
 // async function getConfig() {

@@ -87,7 +87,7 @@ export function isImage(url) {
 }
 
 export default {
-  isiOS,
+  isIOS,
   isWx,
   isAliPay,
   isPc,
