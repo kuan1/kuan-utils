@@ -44,5 +44,5 @@ export function hex2rgb(hex) {
 export default {
   random,
   rgb2hex,
-  hexo2rgb
+  hex2rgb
 }
