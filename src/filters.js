@@ -1,4 +1,13 @@
 /**
+ * @desc 隐藏手机号
+ * @param {*} str
+ * @returns {number}
+ */
+export function hidePhone(phone = '') {
+  return phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2")
+}
+
+/**
  * @desc 获取字符串字节
  * @param {*} str
  * @returns {number}
