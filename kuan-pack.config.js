@@ -1,3 +1,4 @@
 module.exports = {
-  entry: `${__dirname}/test`
+  entry: `${__dirname}/test`,
+  publicPath: './'
 }

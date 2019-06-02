@@ -1,5 +1,3 @@
-import { EPERM } from 'constants'
-
 /**
  * @desc 随机生成颜色
  * @return {String}
