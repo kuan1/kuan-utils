@@ -5,7 +5,8 @@
   "main": "lib/kuan-utils.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/dev",
-    "build": "rimraf lib && cross-env NODE_ENV=production node build/build",
+    "build": "yarn build:lib",
+    "build:lib": "rimraf lib && cross-env NODE_ENV=production node build/build",
     "build:test": "cross-env NODE_ENV=production node build/buildTest",
     "patch": "bash ./publish.sh patch",
     "test": "echo \"Error: no test specified\" && exit 1"

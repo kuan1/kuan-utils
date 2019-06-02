@@ -17,6 +17,9 @@ import throttle from 'kuan-utils/lib/throttle'
 
 ## 更新日志
 
+- 1.3.4
+  升级打包工具，全局变量使用this
+
   1.3.1
 - 光标控制
 
