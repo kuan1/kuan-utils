@@ -1,6 +1,6 @@
 const { buildLib } = require('kuan-pack')
-const config = require('kuan-pack/build/webpack.lib.min.conf')
 const { fileDisplay, resolve } = require('./utils')
+const config = require('kuan-pack/build/webpack.lib.conf')
 
 const targets = fileDisplay(resolve('src'))
 
@@ -17,6 +17,7 @@ buildLib({
     config.output.filename = '[name].js'
     config.output.library = '[name]'
     config.entry = entry
+    delete config.devtool
   },
   config
 })
