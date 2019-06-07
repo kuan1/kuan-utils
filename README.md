@@ -10,17 +10,21 @@ yarn add kuan-utils
 npm i kuan-utils -S
 ```
 
-``` js
-import {throttle} from 'kuan-utils'
+```js
+import { throttle } from 'kuan-utils'
 import throttle from 'kuan-utils/lib/throttle'
 ```
 
 ## 更新日志
 
+- 1.3.7
+  图片上传 uploader 升级
+
 - 1.3.4
-  升级打包工具，全局变量使用this
+  升级打包工具，全局变量使用 this
 
   1.3.1
+
 - 光标控制
 
   1.2.8
