@@ -17,7 +17,8 @@ export default class Crontab {
   start() {
     this.stop()
     this.exec()
-    setTimeout(() => {
+    if (!this.list.length) return
+    this.timer = setTimeout(() => {
       this.start()
     }, 1000 * 60)
   }
@@ -37,7 +38,7 @@ export default class Crontab {
     ]
 
     this.list.forEach(item => {
-      const { time = [], task = () => {}, name = '任务', once = false } = item
+      const { time = [], task = () => { }, name = '任务', once = false } = item
       if (this.shouldExec(time, nowTime)) {
         const format = n => (n > 9 ? n : `0${n}`)
         this.log(`\n${format(nowTime[1])}:${format(nowTime[0])}`)
@@ -66,6 +67,7 @@ export default class Crontab {
     }
     this.list = [...this.list, ...filetrList]
     this.log(`当前定时${this.list.length}个任务...`)
+    this.start()
   }
   // 删除任务
   remove(name) {
@@ -74,6 +76,7 @@ export default class Crontab {
     if (list.length !== this.list) {
       this.log(`${name} 被删除`)
     }
+    this.start()
   }
   // 执行日志
   log(str) {

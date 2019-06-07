@@ -6,7 +6,6 @@ function request(url) {
   return new Promise(resolve => {
     const xhr = new XMLHttpRequest()
     xhr.open('GET', url)
-    console.log(url)
     xhr.responseType = 'arraybuffer'
     xhr.onload = () => {
       audioContext.decodeAudioData(xhr.response, buffer => {
