@@ -9,7 +9,7 @@
     "build:lib": "rimraf lib && cross-env NODE_ENV=production node build/build",
     "build:test": "cross-env NODE_ENV=production node build/buildTest",
     "patch": "bash ./publish.sh patch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "axios": "^0.18.0"
   },
   "devDependencies": {
+    "babel-jest": "^24.8.0",
     "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "kuan-pack": "^2.1.1",

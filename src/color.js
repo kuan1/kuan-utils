@@ -24,6 +24,7 @@ export function rgb2hex(r, g, b) {
  * @param {string} hex
  * @return {string} rgb
  */
+
 export function hex2rgb(hex) {
   if (!/^#?([0-9a-f]{3}|[#-9a-f]{6})$/.test(hex)) return ''
   let str = hex.replace('#', '')
@@ -37,8 +38,10 @@ export function hex2rgb(hex) {
   const r = (n >> 16) & 255
   const g = (n >> 8) & 255
   const b = n & 255
+
   return r + ',' + g + ',' + b
 }
+
 export default {
   random,
   rgb2hex,
