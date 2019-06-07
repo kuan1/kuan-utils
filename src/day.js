@@ -15,7 +15,7 @@ export function format(d = new Date(), fmt = 'YYYY-MM-DD HH:mm:ss') {
       if (k == 'Y+') {
         fmt = fmt.replace(RegExp.$1, ('' + o[k]).substr(4 - RegExp.$1.length))
       } else if (k == 'S+') {
-        const lens = RegExp.$1.length
+        let lens = RegExp.$1.length
         lens = lens == 1 ? 3 : lens
         fmt = fmt.replace(
           RegExp.$1,

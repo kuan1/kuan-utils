@@ -3,7 +3,6 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['plugin:vue/essential', 'eslint:recommended'],
   globals: {
     wx: true,
     AlipayJSBridge: true,
