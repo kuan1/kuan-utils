@@ -35,6 +35,7 @@ export function format(d = new Date(), fmt = 'YYYY-MM-DD HH:mm:ss') {
 }
 
 export function toDate(s = '') {
+  if (s instanceof Date) return s
   return new Date(
     s
       .replace(/-/g, '/')

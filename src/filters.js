@@ -1,10 +1,12 @@
+import dayjs from './day'
+
 /**
  * @desc 隐藏手机号
  * @param {*} str
  * @returns {number}
  */
 export function hidePhone(phone = '') {
-  return phone.replace(/(\d{3})\d{4}(\d{4})/, "$1****$2")
+  return phone.toString().replace(/(\d{3})\d{4}(\d{4})/, "$1****$2")
 }
 
 /**
@@ -46,8 +48,8 @@ export function formatCurrency(num) {
  * @return {String}
  */
 export function timeAgo(startTime) {
-  const currentTime = Date.now()
-  const time = currentTime - startTime
+  const currentTime = (new Date()).getTime()
+  const time = currentTime - dayjs.toDate(startTime)
   const day = Math.floor(time / (1000 * 60 * 60 * 24))
   const hour = Math.floor(time / (1000 * 60 * 60))
   const min = Math.floor(time / (1000 * 60))
