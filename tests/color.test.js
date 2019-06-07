@@ -2,7 +2,6 @@ import color from '../src/color'
 
 it('test color utils', () => {
   const randomColor = color.random()
-  console.log(randomColor)
 
   expect(randomColor.length).toBe(7);
 
