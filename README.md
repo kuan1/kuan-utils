@@ -1,6 +1,6 @@
 # kuan-utils
 
-> 个人 js 工具类整理、具体使用（请看 src） 略
+[简陋文档](https://www.kuan1.top/kuan-utils)
 
 ## 安装
 
