@@ -1,10 +1,11 @@
+import { cancelAnimationFrame, requestAnimationFrame } from './animationFrame'
+
+let timer
+
 export function scrollToTranstion(top = 0) {
+  if (timer) cancelAnimationFrame(timer)
+
   const c = document.documentElement.scrollTop || document.body.scrollTop
-  // if (c > 0) {
-  //   const y = c - c / 8
-  //   window.scrollTo(0, y < 1 ? 0 : y)
-  //   window.requestAnimationFrame(scrollToTop)
-  // }
 
   const distance = c - top
   if (Math.abs(distance) < 1) return
@@ -15,7 +16,7 @@ export function scrollToTranstion(top = 0) {
   }
 
   window.scrollTo(0, y)
-  window.requestAnimationFrame(() => {
+  timer = requestAnimationFrame(() => {
     scrollToTranstion(top)
   })
 }
