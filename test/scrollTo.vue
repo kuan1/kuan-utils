@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h2 @click="to(200)" style="padding-bottom: 100vh;">scrollTo</h2>
-    <button @click="to(30)">回返顶部</button>
+    <h2 @click="to(200)" style="margin-bottom: 100vh;">scrollTo</h2>
+    <button @click="to(-30)">回返顶部</button>
   </div>
 </template>
 
