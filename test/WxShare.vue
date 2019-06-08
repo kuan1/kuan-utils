@@ -2,6 +2,7 @@
   <div>
     <h2>微信分享</h2>
     <pre>{{options}}</pre>
+    <pre>wxShare((userShareData, userConfig))</pre>
   </div>
 </template>
 
