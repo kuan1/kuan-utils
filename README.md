@@ -17,6 +17,10 @@ import throttle from 'kuan-utils/lib/throttle'
 
 ## 更新日志
 
+- 1.3.8
+  添加拖拽
+  添加简陋文档
+
 - 1.3.7
   图片上传 uploader 升级
 
