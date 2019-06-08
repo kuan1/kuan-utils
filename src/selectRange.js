@@ -3,11 +3,11 @@
  */
 // 获取光标位置
 export function getCursortPosition(textDom) {
-  var cursorPos = 0;
+  let cursorPos = 0;
   if (document.selection) {
     // IE Support
     textDom.focus();
-    var selectRange = document.selection.createRange();
+    let selectRange = document.selection.createRange();
     selectRange.moveStart('character', -textDom.value.length);
     cursorPos = selectRange.text.length;
   } else if (textDom.selectionStart || textDom.selectionStart == '0') {
@@ -18,14 +18,14 @@ export function getCursortPosition(textDom) {
 }
 
 // 设置光标位置
-export function setCaretPosition(textDom, pos) {
+export function setCursorPosition(textDom, pos) {
   if (textDom.setSelectionRange) {
     // IE Support
     textDom.focus();
     textDom.setSelectionRange(pos, pos);
   } else if (textDom.createTextRange) {
     // Firefox support
-    var range = textDom.createTextRange();
+    let range = textDom.createTextRange();
     range.collapse(true);
     range.moveEnd('character', pos);
     range.moveStart('character', pos);
@@ -34,16 +34,15 @@ export function setCaretPosition(textDom, pos) {
 }
 // 获取选中文字
 export function getSelectText() {
-  var userSelection, text;
+  let userSelection, text = '';
   if (window.getSelection) {
     // Firefox support
     userSelection = window.getSelection();
+    text = userSelection.toString()
   } else if (document.selection) {
     // IE Support
     userSelection = document.selection.createRange();
-  }
-  if (!(text = userSelection.text)) {
-    text = userSelection;
+    text = userSelection.text
   }
   return text;
 }
@@ -56,9 +55,9 @@ export function getSelectText() {
 *     endPos  [Int]  终点位置
 */
 export function setSelectText(textDom, startPos, endPos) {
-  var startPos = parseInt(startPos),
-    endPos = parseInt(endPos),
-    textLength = textDom.value.length;
+  startPos = parseInt(startPos)
+  endPos = parseInt(endPos)
+  const textLength = textDom.value.length;
   if (textLength) {
     if (!startPos) {
       startPos = 0;
@@ -80,7 +79,7 @@ export function setSelectText(textDom, startPos, endPos) {
     }
     if (textDom.createTextRange) {
       // IE Support
-      var range = textDom.createTextRange();
+      let range = textDom.createTextRange();
       range.moveStart("character", -textLength);
       range.moveEnd("character", -textLength);
       range.moveStart("character", startPos);
@@ -101,7 +100,7 @@ export function setSelectText(textDom, startPos, endPos) {
 *     value  [String]  要插入的文本
 */
 export function insertAfterText(textDom, value) {
-  var selectRange;
+  let selectRange;
   if (document.selection) {
     // IE Support
     textDom.focus();
@@ -110,9 +109,9 @@ export function insertAfterText(textDom, value) {
     textDom.focus();
   } else if (textDom.selectionStart || textDom.selectionStart == '0') {
     // Firefox support
-    var startPos = textDom.selectionStart;
-    var endPos = textDom.selectionEnd;
-    var scrollTop = textDom.scrollTop;
+    let startPos = textDom.selectionStart;
+    let endPos = textDom.selectionEnd;
+    let scrollTop = textDom.scrollTop;
     textDom.value = textDom.value.substring(0, startPos) + value + textDom.value.substring(endPos, textDom.value.length);
     textDom.focus(); ``
     textDom.selectionStart = startPos + value.length;
@@ -126,7 +125,7 @@ export function insertAfterText(textDom, value) {
 
 export default {
   getCursortPosition,
-  setCaretPosition,
+  setCursorPosition,
   getSelectText,
   setSelectText,
   insertAfterText
