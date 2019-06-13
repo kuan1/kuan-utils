@@ -7,7 +7,7 @@
 export function get(name, search) {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
   const r = (search || window.location.search.substr(1)).match(reg)
-  if (r != null) return decodeURIComponent(r[2]) // unescape （w3c说一起用这个方法推荐使用decodeURI() 和 decodeURIComponent()）
+  if (r != null) return decodeURIComponent(r[2]) // unescape （w3c推荐使用decodeURI() 和 decodeURIComponent()）
   return null
 }
 
@@ -19,18 +19,18 @@ export function get(name, search) {
 export function parse(url) {
   url = url == null ? window.location.href : url
   const search = url.includes('?')
-    ? url.substring(url.lastIndexOf('?') + 1)
+    ? url.substr(url.lastIndexOf('?') + 1)
     : ''
   if (!search) {
     return {}
   }
   return JSON.parse(
     '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"') +
-      '"}'
+    decodeURIComponent(search)
+      .replace(/"/g, '\\"')
+      .replace(/&/g, '","')
+      .replace(/=/g, '":"') +
+    '"}'
   )
 }
 
@@ -48,16 +48,13 @@ export function stringify(obj) {
 
     if (value instanceof Array) {
       for (let i = 0; i < value.length; ++i) {
-        pairs.push(
-          encodeURIComponent(key + '[' + i + ']') +
-            '=' +
-            encodeURIComponent(value[i])
-        )
+        const arrStr = `${key}[${i}]=${encodeURIComponent(value[i])}`
+        pairs.push(arrStr)
       }
       continue
     }
 
-    pairs.push(encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
+    pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
   }
 
   return pairs.join('&')

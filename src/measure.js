@@ -6,5 +6,6 @@ export default el => {
     context = document.createElement('canvas').getContext('2d')
     context.font = measureStyle.getPropertyValue('font')
   }
-  return context.measureText(text).width
+  console.log(el.textContent)
+  return context.measureText(el.textContent).width
 }

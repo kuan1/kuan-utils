@@ -74,9 +74,9 @@ export function div(arg1, arg2) {
     t2 = arg2.toString().split('.')[1].length
   } catch (e) {
   }
-  const r1 = Number(arg1.toString().replace('.', ''))
-  const r2 = Number(arg2.toString().replace('.', ''))
-  return (r1 / r2) * Math.pow(10, t2 - t1)
+  const r1 = arg1.toString().replace('.', '')
+  const r2 = arg2.toString().replace('.', '')
+  return r1 / (r2 * 10 ** (t1 - t2))
 }
 
 export default {

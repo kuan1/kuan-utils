@@ -1,15 +1,14 @@
 {
   "name": "kuan-utils",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "",
   "main": "lib/kuan-utils.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development node build/dev",
-    "build": "yarn build:lib",
     "build:lib": "rimraf lib && cross-env NODE_ENV=production node build/build",
     "build:test": "cross-env NODE_ENV=production node build/buildTest",
     "patch": "bash ./publish.sh patch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,6 +19,11 @@
     "src"
   ],
   "author": "kuan1",
+  "keywords": [
+    "utils",
+    "luzhongk",
+    "kuan"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kuan1/kuan-utils/issues"
@@ -27,9 +31,10 @@
   "homepage": "https://github.com/kuan1/kuan-utils#readme",
   "dependencies": {
     "@babel/runtime": "^7.3.1",
-    "axios": "^0.18.0"
+    "axios": "^0.18.1"
   },
   "devDependencies": {
+    "babel-jest": "^24.8.0",
     "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "kuan-pack": "^2.1.1",

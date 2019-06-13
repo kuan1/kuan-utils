@@ -4,7 +4,6 @@
  */
 
 import SparkMD5 from 'spark-md5'
-
 /**
  * @description: 获取文件md5值
  * @param {fileObject} file 文件对象

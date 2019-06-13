@@ -1,6 +1,6 @@
 # kuan-utils
 
-> 个人 js 工具类整理、具体使用（请看 src） 略
+[简陋文档](https://www.kuan1.top/kuan-utils)
 
 ## 安装
 
@@ -16,6 +16,10 @@ import throttle from 'kuan-utils/lib/throttle'
 ```
 
 ## 更新日志
+
+- 1.3.8
+  添加拖拽
+  使用vue编写简陋文档
 
 - 1.3.7
   图片上传 uploader 升级

@@ -67,6 +67,7 @@ export function isIdCard(str) {
  * @return {Boolean}
  */
 export function isUrl(str) {
+  // eslint-disable-next-line
   return /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(
     str
   )
