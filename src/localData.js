@@ -42,7 +42,7 @@ export function createCache(key, maxAge = 60 * 24) {
       setLocalData(key, userInfo, maxAge)
     },
     clear() {
-      localStorage.remove(key)
+      localStorage.removeItem(key)
     }
   }
 }
@@ -50,6 +50,6 @@ export function createCache(key, maxAge = 60 * 24) {
 export default {
   get: getLocalData,
   set: setLocalData,
+  clear: clearLocalData,
   create: createCache,
-  clear: clearLocalData
 }
