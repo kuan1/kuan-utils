@@ -9,6 +9,7 @@ module.exports = {
     _hmt: true
   },
   rules: {
+    parser: 'babel-eslint',
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
