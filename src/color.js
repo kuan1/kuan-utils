@@ -26,8 +26,8 @@ export function rgb2hex(r, g, b) {
  */
 
 export function hex2rgb(hex) {
-  if (!/^#?([0-9a-f]{3}|[#-9a-f]{6})$/.test(hex)) return ''
-  let str = hex.toLowerCase().replace('#', '')
+  if (!/^#?([0-9a-fA-F]{3}|[#-9a-fA-F]{6})$/.test(hex)) return ''
+  let str = hex.replace('#', '')
   if (str.length === 3) {
     str = str
       .split('')
