@@ -1,15 +1,17 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   env: {
-    node: true
+    es6: true
+  },
+  parserOptions: {
+    sourceType: 'module'
   },
   globals: {
     wx: true,
-    AlipayJSBridge: true,
-    _hmt: true
+    AlipayJSBridge: true
   },
   rules: {
-    parser: 'babel-eslint',
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
