@@ -28,7 +28,7 @@ export const isPc = !/Android|webOS|iPhone|iPod|BlackBerry/i.test(userAgent)
  * @return {Boolean}
  */
 export function isPhone(str) {
-  return /^(0|86|17951)?1\d{10}$/.test(str)
+  return /^(0|86|17951)?1[3456789]\d{9}$/.test(str)
 }
 
 /**
