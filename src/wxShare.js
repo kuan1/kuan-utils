@@ -59,7 +59,12 @@ export default async (userShareData, userConfig) => {
     const shareData = { ...defaultShare, ...userShareData }
     // 自定义“分享给朋友”及“分享到QQ”按钮的分享内容
     wx.updateAppMessageShareData(shareData)
+    const timelineData = {
+      title: shareData.desc || shareData.title, // 分享标题
+      link: shareData.link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+      imgUrl: shareData.imgUrl, // 分享图标
+    }
     // 自定义“分享到朋友圈”及“分享到QQ空间”按钮的分享内容（1.4.0）
-    wx.updateTimelineShareData(shareData)
+    wx.updateTimelineShareData(timelineData)
   })
 }
