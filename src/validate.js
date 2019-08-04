@@ -8,7 +8,7 @@ if (typeof navigator !== 'undefined') {
 }
 
 // ios浏览器
-export const isIOS = /applewebkit/i.test(userAgent)
+export const isIOS = /iPhone|iPad|iPod|iOS/i.test(userAgent)
 
 // 微信浏览器
 export const isWx = /micromessenger/i.test(userAgent)
