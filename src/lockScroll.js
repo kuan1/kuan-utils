@@ -10,7 +10,7 @@ function lock(isFixed = true) {
     top = window.scrollY
 
     bodyEl.style.position = 'fixed'
-    bodyEl.style.top = -`${top}px`
+    bodyEl.style.top = `-${top}px`
   } else {
     bodyEl.style.position = ''
     bodyEl.style.top = ''
