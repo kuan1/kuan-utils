@@ -8,16 +8,14 @@
       <span class="pointer" @click="is = ''">首页</span>
     </p>
     <ul v-if="!is">
-      <li v-for="(item, key) in components" @click="is = key" class="pointer" :key="key">
-        {{key}}
-      </li>
+      <li v-for="(item, key) in components" @click="is = key" class="pointer" :key="key">{{key}}</li>
     </ul>
-    <component :is="is" />
+    <component :is="is"/>
   </div>
 </template>
 
 <script>
-import components from './test'
+import components from './gh'
 
 // https://github.com/mdn/voice-change-o-matic/blob/gh-pages/scripts/app.js
 
