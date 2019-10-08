@@ -5,7 +5,6 @@
   "main": "lib/kuan-utils.js",
   "scripts": {
     "build": "rimraf lib && cross-env NODE_ENV=production node build/build",
-    "patch": "bash ./publish.sh patch",
     "test": "echo success test"
   },
   "repository": {
