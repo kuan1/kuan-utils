@@ -17,6 +17,8 @@ import throttle from 'kuan-utils/lib/throttle'
 
 ## 更新日志
 
+- 1.3.13 获取隐藏元素尺寸
+
 - 1.3.10 手机号验证
 
 - 1.3.8

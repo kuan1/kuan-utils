@@ -1,4 +1,3 @@
-/* eslint-disable-next-line */
 function requireAll() {
   const r = require.context('./', false, /.*\.vue/)
   return r.keys().reduce((collect = {}, key) => {

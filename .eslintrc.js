@@ -1,19 +1,12 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   env: {
-    es6: true
+    node: true
   },
-  parserOptions: {
-    sourceType: 'module'
-  },
-  globals: {
-    wx: true,
-    AlipayJSBridge: true
-  },
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
   rules: {
     'no-console': 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': 'off'
   },
   parserOptions: {
     parser: 'babel-eslint'
