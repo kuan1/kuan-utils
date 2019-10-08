@@ -15,6 +15,7 @@ export default function getSize(elem) {
   }
 
   function getNoneNode(node) {
+    if (!node) return
     let display = getStyles(node).getPropertyValue('display'),
       tagName = node.nodeName.toLowerCase()
     if (display != 'none' && tagName != 'body') {
