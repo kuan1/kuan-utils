@@ -4,9 +4,9 @@
   "description": "js utils",
   "main": "lib/kuan-utils.js",
   "scripts": {
-    "build:lib": "rimraf lib && cross-env NODE_ENV=production node build/build",
+    "build": "rimraf lib && cross-env NODE_ENV=production node build/build",
     "patch": "bash ./publish.sh patch",
-    "test": "jest"
+    "test": "success"
   },
   "repository": {
     "type": "git",
