@@ -1,16 +1,20 @@
+// parentNode 设置document.body全屏拖拽
+
 export default class Drag {
-  constructor(el, onchange) {
+  constructor(el, onchange, parentNode) {
     this.el = el
+    this.parentNode = parentNode || el.parentNode
     this.onchange = onchange
     this.init(el, onchange)
   }
   init(el, onchange) {
     this.el = el
     el.style.position = 'absolute'
-    el.style.cursor = 'move'
-    const maxLeft = el.parentNode.clientWidth - el.clientWidth
-    const maxTop = el.parentNode.clientHeight - el.clientHeight
+    el.style.cursor = 'grab'
+    const maxLeft = this.parentNode.clientWidth - el.clientWidth
+    const maxTop = this.parentNode.clientHeight - el.clientHeight
     el.onmousedown = function(e) {
+      el.style.cursor = 'grabbing'
       const disX = e.clientX - el.offsetLeft
       const disY = e.clientY - el.offsetTop
       document.onmousemove = function(e) {
@@ -46,6 +50,7 @@ export default class Drag {
             y: el.style.top.replace('px', '')
           })
         }
+        if (this.el) this.el.cursor = 'grab'
         document.onmousemove = null
         document.onmouseup = null
       }

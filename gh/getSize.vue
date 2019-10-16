@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .get-size .ref {
   display: none;
 }
