@@ -4,11 +4,11 @@
  * @param search {string}  [a=1&b=2]
  * @returns {string || null}
  */
-export function get(name, search) {
-  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)')
-  const r = (search || window.location.search.substr(1)).match(reg)
-  if (r != null) return decodeURIComponent(r[2]) // unescape （w3c推荐使用decodeURI() 和 decodeURIComponent()）
-  return null
+export function get(name, search = window.location.href.split("?")[1]) {
+  const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+  const r = (search || "").match(reg);
+  if (r != null) return decodeURIComponent(r[2]); // unescape （w3c推荐使用decodeURI() 和 decodeURIComponent()）
+  return null;
 }
 
 /**
@@ -17,21 +17,15 @@ export function get(name, search) {
  * @return {Object}
  */
 export function parse(url) {
-  url = url == null ? window.location.href : url
-  const search = url.includes('?')
-    ? url.substr(url.lastIndexOf('?') + 1)
-    : ''
-  if (!search) {
-    return {}
-  }
-  return JSON.parse(
-    '{"' +
-    decodeURIComponent(search)
-      .replace(/"/g, '\\"')
-      .replace(/&/g, '","')
-      .replace(/=/g, '":"') +
-    '"}'
-  )
+  const search = url || window.location.href.split("?")[1];
+  if (!search) return {};
+  return decodeURIComponent(search)
+    .split("&")
+    .reduce((obj, item) => {
+      const [key = "", value = ""] = item.split("=");
+      obj[key] = value;
+      return obj;
+    }, {});
 }
 
 /**
@@ -40,28 +34,28 @@ export function parse(url) {
  * @return {String}
  */
 export function stringify(obj) {
-  if (!obj) return ''
-  const pairs = []
+  if (!obj) return "";
+  const pairs = [];
 
   for (const key in obj) {
-    const value = obj[key]
+    const value = obj[key];
 
     if (value instanceof Array) {
       for (let i = 0; i < value.length; ++i) {
-        const arrStr = `${key}[${i}]=${encodeURIComponent(value[i])}`
-        pairs.push(arrStr)
+        const arrStr = `${key}[${i}]=${encodeURIComponent(value[i])}`;
+        pairs.push(arrStr);
       }
-      continue
+      continue;
     }
 
-    pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
+    pairs.push(`${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`);
   }
 
-  return pairs.join('&')
+  return pairs.join("&");
 }
 
 export default {
   get,
   parse,
   stringify
-}
+};
