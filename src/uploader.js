@@ -105,7 +105,7 @@ export function selectFile({ accept = 'image/*', multiple = false }) {
  * @return: Promise={file, md5}
  */
 export async function getFiles({
-  multiple,
+  multiple = true,
   accept = 'image/*',
   needMD5 = true,
   readProcess
