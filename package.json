@@ -4,8 +4,8 @@
   "description": "[简陋文档](https://www.kuan1.top/kuan-utils)",
   "main": "babel.config.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development vuepress dev docs",
-    "build": "cross-env NODE_ENV=production vuepress build docs",
+    "dev": "cross-env NODE_ENV=development rollup --config build/rollup.config.dev.js -w",
+    "build": "cross-env NODE_ENV=production  rollup -c",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,8 +26,11 @@
   },
   "homepage": "https://github.com/kuan1/kuan-utils#readme",
   "devDependencies": {
+    "@rollup/plugin-html": "^0.1.0",
     "chalk": "^3.0.0",
     "cross-env": "^6.0.3",
+    "rollup": "^1.27.13",
+    "rollup-plugin-serve": "^1.0.1",
     "yorkie": "^2.0.0"
   }
 }
