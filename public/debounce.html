@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>kuan-dayjs</title>
+    <title>kuan-debounce</title>
     <style>
       body {
         max-width: 600px;
         margin: 0 auto;
+        height: 300vh;
       }
       h2 {
         text-align: center;
@@ -22,24 +23,23 @@
     </style>
   </head>
   <body>
-    <h2>kuan-dayjs</h2>
+    <h2>kuan-debounce</h2>
     <div class="res">
-      <p>
-        <button onclick="printDate()" class="set-btn">打印当前时间</button>
-        <button onclick="getCurrent()" class="set-btn">获取当前时间</button>
-      </p>
+      <span>滚动事件:</span>
+      <span class="text">1</span>
     </div>
   </body>
   <script>
-    const dayjs = window["kuan-dayjs"];
+    const debounce = window["kuan-debounce"];
 
-    function printDate() {
-      console.log(dayjs.toDate("2018-10-10"));
-    }
+    let i = 1;
 
-    function getCurrent() {
-      const a = dayjs.format();
-      alert(a);
+    window.addEventListener("scroll", () => debounce(test, 300));
+
+    function test() {
+      console.log(1234);
+      i += 1;
+      document.querySelector(".text").innerHTML = i;
     }
   </script>
 </html>
