@@ -2,35 +2,42 @@
   "name": "kuan-utils",
   "version": "2.0.0",
   "description": "[简陋文档](https://www.kuan1.top/kuan-utils)",
-  "main": "babel.config.js",
+  "main": "lib/kuan-utils.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development rollup --config build/rollup.config.dev.js -w",
-    "build": "cross-env NODE_ENV=production  rollup -c",
+    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
+    "build": "webpack --config build/webpack.config.prod.js",
+    "build:lib": "webpack --config build/webpack.config.lib.js",
     "version": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "typings": "types/index.d.ts",
+  "author": "luzhongk@126.com",
+  "gitHooks": {
+    "commit-msg": "node verifyCommitMsg.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@luzhongk/node-logger": "^1.1.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2",
+    "yorkie": "^2.0.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kuan1/kuan-utils.git"
   },
-  "keywords": [
-    "utils"
-  ],
-  "author": "luzhongk@126.com",
   "license": "ISC",
-  "gitHooks": {
-    "commit-msg": "node ./verifyCommitMsg.js"
-  },
   "bugs": {
     "url": "https://github.com/kuan1/kuan-utils/issues"
   },
-  "homepage": "https://github.com/kuan1/kuan-utils#readme",
-  "devDependencies": {
-    "@rollup/plugin-html": "^0.1.0",
-    "chalk": "^3.0.0",
-    "cross-env": "^6.0.3",
-    "rollup": "^1.27.13",
-    "rollup-plugin-serve": "^1.0.1",
-    "yorkie": "^2.0.0"
-  }
+  "homepage": "https://github.com/kuan1/kuan-utils#readme"
 }
