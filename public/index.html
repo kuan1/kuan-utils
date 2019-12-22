@@ -7,24 +7,34 @@
     <title>kuan-utils</title>
     <style>
       body {
-        max-width: 1000px;
+        max-width: 600px;
         margin: 0 auto;
       }
+      h2 {
+        text-align: center;
+      }
       .content {
-        border: 1px solid #eee;
         border-radius: 3px;
         padding: 10px;
         min-height: 200px;
+        font-size: 20px;
       }
     </style>
   </head>
   <body>
     <h2>kuan-utils</h2>
-    <div class="content"></div>
+    <ul class="content"></ul>
   </body>
   <script>
-    document.querySelector(".content").innerHTML = Object.keys(
-      window["kuan-utils"]
-    ).join("、");
+    function createLi() {
+      const str = Object.keys(window["kuan-utils"])
+        .map(item => {
+          return '<li><a href="' + item + '.html">' + item + "</a></li>";
+        })
+        .join("\n");
+      document.querySelector(".content").innerHTML = str;
+    }
+
+    createLi();
   </script>
 </html>
