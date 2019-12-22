@@ -2,6 +2,8 @@
 
 [简陋文档](https://www.kuan1.top/kuan-utils)
 
+> 使用 typescript 重构，有些语法还有待完善
+
 ## 安装
 
 ```bash
