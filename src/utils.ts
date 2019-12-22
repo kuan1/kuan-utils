@@ -5,6 +5,7 @@ import dayjs from "./dayjs";
 import debounce from "./debounce";
 import deepClone from "./deepClone";
 import download from "./download";
+import Drag from "./Drag";
 
 export default {
   color,
@@ -13,5 +14,6 @@ export default {
   dayjs,
   debounce,
   deepClone,
-  download
+  download,
+  Drag
 };
