@@ -4,6 +4,7 @@ import copy from "./copy";
 import dayjs from "./dayjs";
 import debounce from "./debounce";
 import deepClone from "./deepClone";
+import download from "./download";
 
 export default {
   color,
@@ -11,5 +12,6 @@ export default {
   copy,
   dayjs,
   debounce,
-  deepClone
+  deepClone,
+  download
 };
