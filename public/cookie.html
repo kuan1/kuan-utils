@@ -26,9 +26,9 @@
     <div class="res">
       <p>
         <input type="text" />
-        <button onclick="setCookie()" class="set-btn">设置token</button onclick="setCookie()">
+        <button onclick="setCookie()" class="set-btn">设置token</button>
         <button onclick="getCookie()" class="get-btn">获取cookie</button>
-        <button onclick="removeCookie()" class="remove-btn">清空cookie</button onclick="setCookie()">
+        <button onclick="removeCookie()" class="remove-btn">清空cookie</button>
       </p>
     </div>
   </body>
@@ -40,16 +40,16 @@
 
     const key = "test-key";
     function setCookie() {
-      console.log('set', key, input.value)
+      console.log("set", key, input.value);
       cookie.set(key, input.value);
     }
     function getCookie() {
-      console.log('get')
+      console.log("get");
       const c = cookie.get(key);
       alert(c);
     }
     function removeCookie() {
-      console.log('remove')
+      console.log("remove");
       cookie.remove();
     }
   </script>
