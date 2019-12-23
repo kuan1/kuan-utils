@@ -11,6 +11,7 @@ import filter from "./filter";
 import fullScreen from "./fullScreen";
 import eleSize from "./eleSize";
 import imgUtil from "./imgUtil";
+import localData from "./localData";
 
 export default {
   animationFrame,
@@ -25,5 +26,6 @@ export default {
   filter,
   fullScreen,
   eleSize,
-  imgUtil
+  imgUtil,
+  localData
 };
