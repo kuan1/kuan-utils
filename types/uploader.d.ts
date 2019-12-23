@@ -17,7 +17,7 @@ interface UploadOptions {
  * @param {Function} processFn 读取md5进度
  * @return:
  */
-export declare function getFileMD5(file: File, processFn: Function | undefined): Promise<{}>;
+export declare function getFileMD5(file: File, processFn: Function | undefined): Promise<unknown>;
 /**
  * @description: js触发获取文件
  * @param {String} accept 文件类型
@@ -37,7 +37,7 @@ export declare function selectFile({ accept, multiple }: {
  */
 export declare function getFiles(options: Options): Promise<{
     file: File;
-    md5: {};
+    md5: unknown;
     name: string;
 }[]>;
 /**
@@ -45,7 +45,7 @@ export declare function getFiles(options: Options): Promise<{
  */
 export declare function getFile(o: Options): Promise<{
     file: File;
-    md5: {};
+    md5: unknown;
     name: string;
 }>;
 /**
@@ -56,7 +56,7 @@ export declare function getFile(o: Options): Promise<{
  * @param {Function} 进度
  * @return: Promise
  */
-export declare function upload({ url, data, onProgress, toast, withCredentials }: UploadOptions): Promise<{}>;
+export declare function upload({ url, data, onProgress, toast, withCredentials }: UploadOptions): Promise<unknown>;
 declare const _default: {
     getFileMD5: typeof getFileMD5;
     getFiles: typeof getFiles;

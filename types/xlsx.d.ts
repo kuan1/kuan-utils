@@ -10,6 +10,6 @@ interface XlxsOption {
 }
 declare const _default: {
     JSONToExcel: (dataConfig: XlxsOption) => void;
-    excelToJSON: (file: File) => Promise<{}> | undefined;
+    excelToJSON: (file: File) => Promise<unknown> | undefined;
 };
 export default _default;

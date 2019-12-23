@@ -13,7 +13,7 @@ export declare function get(name: string, search?: string): string | null;
  * @param  {String} search  default: window.location.href
  * @return {Object}
  */
-export declare function parse(search?: string): {};
+export declare function parse(search?: string): Obj;
 /**
  * @desc   对象序列化
  * @param  {Object} obj
