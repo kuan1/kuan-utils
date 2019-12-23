@@ -7,6 +7,7 @@ import deepClone from "./deepClone";
 import download from "./download";
 import Drag from "./Drag";
 import filter from "./filter";
+import fullScreen from "./fullScreen";
 
 export default {
   color,
@@ -17,5 +18,6 @@ export default {
   deepClone,
   download,
   Drag,
-  filter
+  filter,
+  fullScreen
 };
