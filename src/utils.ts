@@ -16,6 +16,7 @@ import lockScroll from "./lockScroll";
 import mathUtil from "./mathUtil";
 import qs from "./qs";
 import rem from "./rem";
+import smoothScroll from "./smoothScroll";
 
 export default {
   animationFrame,
@@ -35,5 +36,6 @@ export default {
   lockScroll,
   mathUtil,
   qs,
-  rem
+  rem,
+  smoothScroll
 };

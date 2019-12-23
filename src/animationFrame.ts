@@ -8,14 +8,14 @@ interface Win extends Window {
 
 const win = <Win>window;
 
-const requestAnimationFrame = (win.requestAnimationFrame =
+export const requestAnimationFrame = (win.requestAnimationFrame =
   win.requestAnimationFrame ||
   win.webkitRequestAnimationFrame ||
   win.mozRequestAnimationFrame ||
   win.msRequestAnimationFrame ||
   (callback => window.setTimeout(callback, 1000 / 60)));
 
-const cancelAnimationFrame = (win.cancelAnimationFrame =
+export const cancelAnimationFrame = (win.cancelAnimationFrame =
   win.cancelAnimationFrame ||
   win.webkitCancelAnimationFrame ||
   win.mozCancelAnimationFrame ||

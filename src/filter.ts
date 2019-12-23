@@ -5,7 +5,7 @@ import dayjs from "./dayjs";
  * @param {*} str
  * @returns {string}
  */
-function hidePhone(phone: string | number = ""): string {
+export function hidePhone(phone: string | number = ""): string {
   return phone.toString().replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
 }
 
@@ -14,7 +14,7 @@ function hidePhone(phone: string | number = ""): string {
  * @param {*} str
  * @returns {number}
  */
-function byteSize(str: string): number {
+export function byteSize(str: string): number {
   return new Blob([str]).size;
 }
 
@@ -23,7 +23,7 @@ function byteSize(str: string): number {
  * @params str {string}
  * @returns {string}
  */
-function htmlEncode(str: string = ""): string {
+export function htmlEncode(str: string = ""): string {
   return str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -38,7 +38,7 @@ function htmlEncode(str: string = ""): string {
  * @param num {string || number}
  * @returns {string}
  */
-function formatCurrency(num: number | string) {
+export function formatCurrency(num: number | string) {
   return (+num || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
@@ -47,7 +47,7 @@ function formatCurrency(num: number | string) {
  * @param  {Date} startTime
  * @return {String}
  */
-function timeAgo(startTime: Date | string) {
+export function timeAgo(startTime: Date | string) {
   const currentTime = new Date().getTime();
   const time = currentTime - dayjs.toDate(startTime).getTime();
   const day = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -69,7 +69,7 @@ function timeAgo(startTime: Date | string) {
  * @param  {Date} endTime
  * @return {String}
  */
-function remainTime(endTime: Date | string) {
+export function remainTime(endTime: Date | string) {
   const startDate = new Date(); // 开始时间
   const endDate = dayjs.toDate(endTime); // 结束时间
   const t = endDate.getTime() - startDate.getTime(); // 时间差
