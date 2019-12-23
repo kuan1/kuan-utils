@@ -20,6 +20,10 @@ import smoothScroll from "./smoothScroll";
 import selectRange from "./selectRange";
 import speaker from "./speaker";
 import throttle from "./throttle";
+import uploader from "./uploader";
+import validate from "./validate";
+import wxShare from "./wxShare";
+import xlsx from "./xlsx";
 
 export default {
   animationFrame,
@@ -43,5 +47,9 @@ export default {
   smoothScroll,
   selectRange,
   speaker,
-  throttle
+  throttle,
+  uploader,
+  validate,
+  wxShare,
+  xlsx
 };

@@ -18,12 +18,14 @@
     "src",
     "types"
   ],
-  "typings": "types/index.d.ts",
+  "types": "types",
   "author": "luzhongk@126.com",
   "gitHooks": {
     "commit-msg": "node verifyCommitMsg.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
   "devDependencies": {
     "@luzhongk/node-logger": "^1.1.1",
     "@types/spark-md5": "^3.0.2",
@@ -36,6 +38,7 @@
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1",
     "webpack-merge": "^4.2.2",
+    "xlsx": "^0.15.4",
     "yorkie": "^2.0.0"
   },
   "repository": {

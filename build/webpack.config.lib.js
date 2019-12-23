@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
     umdNamedDefine: true
   },
   externals: {
-    // vue: { commonjs: 'vue', commonjs2: 'vue', root: 'Vue' },
+    axios: "axios"
   },
   mode: "production"
 });

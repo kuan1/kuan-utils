@@ -1,24 +1,33 @@
+interface SpWin extends Window {
+  SpeechSynthesisUtterance?: new () => SpeechSynthesisUtterance;
+}
+
 let speaker: any;
+const win = window as SpWin;
 
 // 停止语音
 export function stop() {
-  window.speechSynthesis.cancel();
+  if (win.speechSynthesis) {
+    win.speechSynthesis.cancel();
+  }
 }
 
 // 播放语音
 export function speak(text: string) {
   stop();
-  if (!speaker) {
-    speaker = new window.SpeechSynthesisUtterance();
+  if (!speaker && win.SpeechSynthesisUtterance) {
+    speaker = new win.SpeechSynthesisUtterance();
   }
-  speaker.text = text;
-  window.speechSynthesis.speak(speaker);
+  if (speaker) {
+    speaker.text = text;
+    win.speechSynthesis.speak(speaker);
+  }
 }
 
 // 监听语音结束
 export function onend(callback: Function = () => {}) {
-  if (!speaker) {
-    speaker = new window.SpeechSynthesisUtterance();
+  if (!speaker && win.SpeechSynthesisUtterance) {
+    speaker = new win.SpeechSynthesisUtterance();
   }
   speaker && (speaker.onend = callback);
 }

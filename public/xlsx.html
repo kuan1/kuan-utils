@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>kuan-validate</title>
+    <title>kuan-xlsx</title>
     <style>
       body {
         max-width: 600px;
@@ -22,17 +22,25 @@
     </style>
   </head>
   <body>
-    <h2>kuan-validate</h2>
+    <h2>kuan-xlsx</h2>
     <div class="res">
       <p>
-        isIOS, isWx, isAliPay, isPc, isPhone, isEmail, isNum, isIdCard, isUrl,
-        isImage
+        <button onclick="test()">导出excel</button>
       </p>
     </div>
   </body>
   <script>
-    const validate = window["kuan-validate"];
+    const xlsx = window["kuan-xlsx"];
 
-    console.log(validate);
+    const data = {
+      name: "test",
+      data: [{ a: 1, b: 2 }],
+      header: { a: "A", b: "B" },
+      skipHeader: true
+    };
+
+    function test() {
+      xlsx.JSONToExcel(data);
+    }
   </script>
 </html>

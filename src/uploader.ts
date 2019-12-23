@@ -35,6 +35,10 @@ interface UploadOptions {
   withCredentials: boolean;
 }
 
+interface fileEveTarget extends EventTarget {
+  result?: ArrayBuffer;
+}
+
 /**
  * @description: 获取文件md5值
  * @param {fileObject} file 文件对象
@@ -54,7 +58,8 @@ export function getFileMD5(file: File, processFn: Function | undefined) {
     const spark = new SparkMD5(); //获取MD5对象
 
     fileReader.onload = e => {
-      const result = e.target ? e.target.result : "";
+      const t = e.target as fileEveTarget;
+      const result = t.result || "";
       //数据加载完毕事件
       let binaryStr = "";
       const bytes = result instanceof ArrayBuffer ? new Uint8Array(result) : "";

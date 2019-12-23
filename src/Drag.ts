@@ -59,13 +59,13 @@ export default class Drag {
         // 将此时的位置传出去
         document.onmousemove = null;
         document.onmouseup = null;
-        if (el) {
+        if (el && el.style) {
           el.style.cursor = "grab";
+          onchange({
+            x: el.style.left ? el.style.left.replace("px", "") : 0,
+            y: el.style.top ? el.style.top.replace("px", "") : 0
+          });
         }
-        onchange({
-          x: el.style.left.replace("px", ""),
-          y: el.style.top.replace("px", "")
-        });
       };
     };
   }

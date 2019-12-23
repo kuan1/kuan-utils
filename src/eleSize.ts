@@ -48,8 +48,8 @@ export default function eleSize(elem: HTMLElement) {
   function setNodeStyle() {
     let i = 0;
     for (; i < noneNodes.length; i++) {
-      let visibility = noneNodes[i].style.visibility,
-        display = noneNodes[i].style.display,
+      let visibility = noneNodes[i].style.visibility || "",
+        display = noneNodes[i].style.display || "",
         style = noneNodes[i].getAttribute("style");
       //覆盖其他display样式
       noneNodes[i].setAttribute(
