@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>kuan-utils</title>
+    <title>kuan-debounce</title>
     <style>
       body {
         max-width: 600px;
         margin: 0 auto;
+        height: 300vh;
       }
       h2 {
         text-align: center;
@@ -22,19 +23,23 @@
     </style>
   </head>
   <body>
-    <h2>kuan-utils</h2>
-    <ul class="content"></ul>
-  <script type="text/javascript" src="/kuan-utils/utils.js"></script></body>
+    <h2>kuan-debounce</h2>
+    <div class="res">
+      <span>滚动事件:</span>
+      <span class="text">1</span>
+    </div>
+  <script type="text/javascript" src="/kuan-utils/debounce.js"></script></body>
   <script>
-    function createLi() {
-      const str = Object.keys(window["kuan-utils"])
-        .map(item => {
-          return '<li><a href="' + item + '.html">' + item + "</a></li>";
-        })
-        .join("\n");
-      document.querySelector(".content").innerHTML = str;
-    }
+    const debounce = window["kuan-debounce"];
 
-    createLi();
+    let i = 1;
+
+    window.addEventListener("scroll", () => debounce(test, 300));
+
+    function test() {
+      console.log(1234);
+      i += 1;
+      document.querySelector(".text").innerHTML = i;
+    }
   </script>
 </html>

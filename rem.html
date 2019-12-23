@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>kuan-utils</title>
+    <title>kuan-rem</title>
     <style>
       body {
         max-width: 600px;
@@ -12,6 +12,7 @@
       }
       h2 {
         text-align: center;
+        font-size: 0.3rem;
       }
       .content {
         border-radius: 3px;
@@ -22,19 +23,15 @@
     </style>
   </head>
   <body>
-    <h2>kuan-utils</h2>
-    <ul class="content"></ul>
-  <script type="text/javascript" src="/kuan-utils/utils.js"></script></body>
+    <h2>kuan-rem</h2>
+    <div class="res">
+      <p>
+        rem()
+      </p>
+    </div>
+  <script type="text/javascript" src="/kuan-utils/rem.js"></script></body>
   <script>
-    function createLi() {
-      const str = Object.keys(window["kuan-utils"])
-        .map(item => {
-          return '<li><a href="' + item + '.html">' + item + "</a></li>";
-        })
-        .join("\n");
-      document.querySelector(".content").innerHTML = str;
-    }
-
-    createLi();
+    const rem = window["kuan-rem"];
+    rem();
   </script>
 </html>

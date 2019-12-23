@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>kuan-utils</title>
+    <title>kuan-deepClone</title>
     <style>
       body {
         max-width: 600px;
@@ -22,19 +22,22 @@
     </style>
   </head>
   <body>
-    <h2>kuan-utils</h2>
-    <ul class="content"></ul>
-  <script type="text/javascript" src="/kuan-utils/utils.js"></script></body>
+    <h2>kuan-deepClone</h2>
+    <div class="res">
+      <p>
+        <button onclick="test()" class="set-btn">拷贝</button>
+      </p>
+    </div>
+  <script type="text/javascript" src="/kuan-utils/deepClone.js"></script></body>
   <script>
-    function createLi() {
-      const str = Object.keys(window["kuan-utils"])
-        .map(item => {
-          return '<li><a href="' + item + '.html">' + item + "</a></li>";
-        })
-        .join("\n");
-      document.querySelector(".content").innerHTML = str;
-    }
+    const deepClone = window["kuan-deepClone"];
 
-    createLi();
+    const obj = { a: { b: 2 }, b: [{ a: 1 }] };
+
+    function test() {
+      const copyObj = deepClone(obj);
+      console.log(copyObj);
+      console.log(obj.a === copyObj.a);
+    }
   </script>
 </html>
