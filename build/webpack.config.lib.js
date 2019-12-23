@@ -13,5 +13,8 @@ module.exports = merge(baseConfig, {
     globalObject: "this",
     umdNamedDefine: true
   },
+  externals: {
+    // vue: { commonjs: 'vue', commonjs2: 'vue', root: 'Vue' },
+  },
   mode: "production"
 });
