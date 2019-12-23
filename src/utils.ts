@@ -15,6 +15,7 @@ import localData from "./localData";
 import lockScroll from "./lockScroll";
 import mathUtil from "./mathUtil";
 import qs from "./qs";
+import rem from "./rem";
 
 export default {
   animationFrame,
@@ -33,5 +34,6 @@ export default {
   localData,
   lockScroll,
   mathUtil,
-  qs
+  qs,
+  rem
 };
