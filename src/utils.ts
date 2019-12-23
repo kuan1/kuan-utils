@@ -18,6 +18,7 @@ import qs from "./qs";
 import rem from "./rem";
 import smoothScroll from "./smoothScroll";
 import selectRange from "./selectRange";
+import speaker from "./speaker";
 
 export default {
   animationFrame,
@@ -39,5 +40,6 @@ export default {
   qs,
   rem,
   smoothScroll,
-  selectRange
+  selectRange,
+  speaker
 };
