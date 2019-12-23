@@ -19,6 +19,7 @@ import rem from "./rem";
 import smoothScroll from "./smoothScroll";
 import selectRange from "./selectRange";
 import speaker from "./speaker";
+import throttle from "./throttle";
 
 export default {
   animationFrame,
@@ -41,5 +42,6 @@ export default {
   rem,
   smoothScroll,
   selectRange,
-  speaker
+  speaker,
+  throttle
 };
