@@ -10,6 +10,7 @@ import Drag from "./Drag";
 import filter from "./filter";
 import fullScreen from "./fullScreen";
 import eleSize from "./eleSize";
+import imgUtil from "./imgUtil";
 
 export default {
   animationFrame,
@@ -23,5 +24,6 @@ export default {
   Drag,
   filter,
   fullScreen,
-  eleSize
+  eleSize,
+  imgUtil
 };
