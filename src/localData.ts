@@ -13,6 +13,10 @@ export function setLocalData(key: string, value: any, maxAge = 60 * 24 * 7) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
+/**
+ * 获取本地localData
+ * @param key{string}
+ */
 export function getLocalData(key: string) {
   try {
     const dataStr = localStorage.getItem(key);
@@ -27,11 +31,19 @@ export function getLocalData(key: string) {
     return null;
   }
 }
+/**
+ * 删除本地localData
+ * @param key{string}
+ */
 export function clearLocalData(key: string) {
   localStorage.remove(key);
 }
 
-// 创建localStorage缓存,有效时间默认1天，用于用户信息
+/**
+ * 创建localStorage缓存,用于用户信息
+ * @param key{string}
+ * @param maxAge{number} 分钟 (默认1天)
+ */
 export function createCache(key: string, maxAge = 60 * 24) {
   return {
     get() {

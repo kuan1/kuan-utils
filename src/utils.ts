@@ -12,6 +12,7 @@ import fullScreen from "./fullScreen";
 import eleSize from "./eleSize";
 import imgUtil from "./imgUtil";
 import localData from "./localData";
+import lockScroll from "./lockScroll";
 
 export default {
   animationFrame,
@@ -27,5 +28,6 @@ export default {
   fullScreen,
   eleSize,
   imgUtil,
-  localData
+  localData,
+  lockScroll
 };
