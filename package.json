@@ -1,6 +1,6 @@
 {
   "name": "kuan-utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "[简陋文档](https://www.kuan1.top/kuan-utils)",
   "main": "lib/utils.js",
   "scripts": {
@@ -16,10 +16,9 @@
   ],
   "files": [
     "lib",
-    "src",
-    "types"
+    "src"
   ],
-  "types": "types",
+  "types": "lib",
   "author": "luzhongk@126.com",
   "gitHooks": {
     "commit-msg": "node verifyCommitMsg.js"
