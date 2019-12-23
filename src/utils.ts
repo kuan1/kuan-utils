@@ -6,6 +6,7 @@ import debounce from "./debounce";
 import deepClone from "./deepClone";
 import download from "./download";
 import Drag from "./Drag";
+import filter from "./filter";
 
 export default {
   color,
@@ -15,5 +16,6 @@ export default {
   debounce,
   deepClone,
   download,
-  Drag
+  Drag,
+  filter
 };

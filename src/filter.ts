@@ -1,11 +1,11 @@
-import dayjs from "./day";
+import dayjs from "./dayjs";
 
 /**
  * @desc 隐藏手机号
  * @param {*} str
- * @returns {number}
+ * @returns {string}
  */
-export function hidePhone(phone = "") {
+function hidePhone(phone: string | number = ""): string {
   return phone.toString().replace(/(\d{3})\d{4}(\d{4})/, "$1****$2");
 }
 
@@ -14,7 +14,7 @@ export function hidePhone(phone = "") {
  * @param {*} str
  * @returns {number}
  */
-export function byteSize(str) {
+function byteSize(str: string): number {
   return new Blob([str]).size;
 }
 
@@ -23,7 +23,7 @@ export function byteSize(str) {
  * @params str {string}
  * @returns {string}
  */
-export function htmlEncode(str) {
+function htmlEncode(str: string = ""): string {
   return str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -38,7 +38,7 @@ export function htmlEncode(str) {
  * @param num {string || number}
  * @returns {string}
  */
-export function formatCurrency(num) {
+function formatCurrency(num: number | string) {
   return (+num || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
@@ -47,9 +47,9 @@ export function formatCurrency(num) {
  * @param  {Date} startTime
  * @return {String}
  */
-export function timeAgo(startTime) {
+function timeAgo(startTime: Date | string) {
   const currentTime = new Date().getTime();
-  const time = currentTime - dayjs.toDate(startTime);
+  const time = currentTime - dayjs.toDate(startTime).getTime();
   const day = Math.floor(time / (1000 * 60 * 60 * 24));
   const hour = Math.floor(time / (1000 * 60 * 60));
   const min = Math.floor(time / (1000 * 60));
@@ -69,9 +69,9 @@ export function timeAgo(startTime) {
  * @param  {Date} endTime
  * @return {String}
  */
-export function remainTime(endTime) {
+function remainTime(endTime: Date | string) {
   const startDate = new Date(); // 开始时间
-  const endDate = new Date(endTime); // 结束时间
+  const endDate = dayjs.toDate(endTime); // 结束时间
   const t = endDate.getTime() - startDate.getTime(); // 时间差
   let d = 0;
   let h = 0;
@@ -85,3 +85,12 @@ export function remainTime(endTime) {
   }
   return d + "天 " + h + "小时 " + m + "分钟 " + s + "秒";
 }
+
+export default {
+  hidePhone,
+  byteSize,
+  htmlEncode,
+  formatCurrency,
+  timeAgo,
+  remainTime
+};

@@ -8,7 +8,10 @@
     <style>
       body {
         max-width: 600px;
-        margin: 0 auto;
+        margin: 10px auto;
+        height: 90vh;
+        position: relative;
+        border: 1px solid red;
       }
       h2 {
         text-align: center;
@@ -29,10 +32,18 @@
     <div id="app"></div>
   </body>
   <script>
-    const drag = window["kuan-drag"];
+    const Drag = window["kuan-Drag"];
 
     function test() {
-      new Drag(document.querySelector("#app"), () => {});
+      new Drag(
+        document.querySelector("#app"),
+        e => {
+          console.log(e);
+        },
+        document.body
+      );
     }
+
+    test();
   </script>
 </html>

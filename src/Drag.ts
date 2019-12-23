@@ -4,8 +4,6 @@ interface D {
   parentNode: HTMLElement;
 }
 
-document.querySelector("div")?.parentElement;
-
 // parentNode 设置document.body全屏拖拽
 export default class Drag {
   parentNode: D["parentNode"];

@@ -10,12 +10,12 @@ interface O {
 }
 type K = keyof O;
 
-export function format(
+function format(
   d: Date | string = new Date(),
   fmt: string = "YYYY-MM-DD HH:mm:ss"
 ) {
   let date = d instanceof Date ? d : toDate(d);
-  const o = {
+  const o: O = {
     "Y+": date.getFullYear(),
     "M+": date.getMonth() + 1, //月份
     "D+": date.getDate(), //日
@@ -48,7 +48,7 @@ export function format(
   return fmt;
 }
 
-export function toDate(s: Date | string = "") {
+function toDate(s: Date | string) {
   if (s instanceof Date) return s;
   return new Date(
     s
