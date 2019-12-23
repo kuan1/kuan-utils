@@ -1,3 +1,4 @@
+import animationFrame from "./animationFrame";
 import color from "./color";
 import cookie from "./cookie";
 import copy from "./copy";
@@ -11,6 +12,7 @@ import fullScreen from "./fullScreen";
 import eleSize from "./eleSize";
 
 export default {
+  animationFrame,
   color,
   cookie,
   copy,
