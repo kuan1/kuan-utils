@@ -5,12 +5,7 @@ const { getHtmlPlugins } = require("./utils");
 module.exports = merge(baseConfig, {
   mode: "production",
   output: {
-    filename: "[name].js",
-    library: "kuan-[name]",
-    libraryTarget: "umd",
-    libraryExport: "default",
-    globalObject: "this",
-    umdNamedDefine: true
+    publicPath: "/kuan-utils/"
   },
   plugins: [...getHtmlPlugins()]
 });
