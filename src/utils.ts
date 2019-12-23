@@ -17,6 +17,7 @@ import mathUtil from "./mathUtil";
 import qs from "./qs";
 import rem from "./rem";
 import smoothScroll from "./smoothScroll";
+import selectRange from "./selectRange";
 
 export default {
   animationFrame,
@@ -37,5 +38,6 @@ export default {
   mathUtil,
   qs,
   rem,
-  smoothScroll
+  smoothScroll,
+  selectRange
 };
