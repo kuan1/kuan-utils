@@ -13,6 +13,7 @@ import eleSize from "./eleSize";
 import imgUtil from "./imgUtil";
 import localData from "./localData";
 import lockScroll from "./lockScroll";
+import mathUtil from "./mathUtil";
 
 export default {
   animationFrame,
@@ -29,5 +30,6 @@ export default {
   eleSize,
   imgUtil,
   localData,
-  lockScroll
+  lockScroll,
+  mathUtil
 };
