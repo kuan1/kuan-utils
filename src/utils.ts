@@ -14,6 +14,7 @@ import imgUtil from "./imgUtil";
 import localData from "./localData";
 import lockScroll from "./lockScroll";
 import mathUtil from "./mathUtil";
+import qs from "./qs";
 
 export default {
   animationFrame,
@@ -31,5 +32,6 @@ export default {
   imgUtil,
   localData,
   lockScroll,
-  mathUtil
+  mathUtil,
+  qs
 };
