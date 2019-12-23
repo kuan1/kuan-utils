@@ -8,6 +8,7 @@ import download from "./download";
 import Drag from "./Drag";
 import filter from "./filter";
 import fullScreen from "./fullScreen";
+import eleSize from "./eleSize";
 
 export default {
   color,
@@ -19,5 +20,6 @@ export default {
   download,
   Drag,
   filter,
-  fullScreen
+  fullScreen,
+  eleSize
 };
