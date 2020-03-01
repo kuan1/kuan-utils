@@ -1,4 +1,4 @@
-## [2.0.2](https://github.com/kuan1/kuan-utils/compare/v1.3.16...v2.0.2) (2020-03-01)
+## [2.0.3](https://github.com/kuan1/kuan-utils/compare/v1.3.16...v2.0.3) (2020-03-01)
 
 
 ### Bug Fixes
