@@ -1,4 +1,9 @@
-# [2.0.0](https://github.com/kuan1/kuan-utils/compare/v1.3.16...v2.0.0) (2019-12-23)
+## [2.0.2](https://github.com/kuan1/kuan-utils/compare/v1.3.16...v2.0.2) (2020-03-01)
+
+
+### Bug Fixes
+
+* share ([bbac3fb](https://github.com/kuan1/kuan-utils/commit/bbac3fbbf4e668d8cbbe778eb6ca1fc7442aaa2d))
 
 
 ### Features
@@ -14,6 +19,7 @@
 * filter ([ff34828](https://github.com/kuan1/kuan-utils/commit/ff348284f9fd822611f6ed8e0ee07dd7ab551ab8))
 * fullscreen ([5bff565](https://github.com/kuan1/kuan-utils/commit/5bff5652b6b0cdb0656a43ec1963f4c0aca7eefa))
 * imgUtil ([3f6154c](https://github.com/kuan1/kuan-utils/commit/3f6154c20953d3b6b766d963217c363b35597716))
+* LoadMore ([7b4a09b](https://github.com/kuan1/kuan-utils/commit/7b4a09b4a54ed03f698a004888f2209b2610414c))
 * localData ([cc50be5](https://github.com/kuan1/kuan-utils/commit/cc50be52e4f15b6789d8172815efd062601cd8d6))
 * lockScroll ([59ef2c4](https://github.com/kuan1/kuan-utils/commit/59ef2c4aec74c169ee379a9a8965ae1614d92a98))
 * mathUtil ([ceca6e1](https://github.com/kuan1/kuan-utils/commit/ceca6e183157a18cb4912abb7469e5a69536e273))
@@ -26,6 +32,7 @@
 * uploader ([26c5250](https://github.com/kuan1/kuan-utils/commit/26c52503056f4139b7a451fdfc3158bfba3e3b80))
 * validate ([2b83f16](https://github.com/kuan1/kuan-utils/commit/2b83f16c4027fc5f0b58da210c4d5a81f466d8f8))
 * xlsx & types ([6a8b997](https://github.com/kuan1/kuan-utils/commit/6a8b9972516ddb8bda65863e61c09bbc98b311cc))
+* 修改types位置 ([8ea1bec](https://github.com/kuan1/kuan-utils/commit/8ea1bec6dc657f7584782f9b108b45abdc8332a4))
 
 
 
