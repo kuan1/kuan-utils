@@ -1,8 +1,10 @@
-## [2.0.3](https://github.com/kuan1/kuan-utils/compare/v1.3.16...v2.0.3) (2020-03-01)
+## [2.0.4](https://github.com/kuan1/kuan-utils/compare/v1.3.16...v2.0.4) (2020-03-07)
 
 
 ### Bug Fixes
 
+* share ([de68ac4](https://github.com/kuan1/kuan-utils/commit/de68ac415316e8cd6b639ca42e0ddfdd2a923765))
+* share ([52771cc](https://github.com/kuan1/kuan-utils/commit/52771cc5883aeddf3f5427d51071365fb51592b6))
 * share ([bbac3fb](https://github.com/kuan1/kuan-utils/commit/bbac3fbbf4e668d8cbbe778eb6ca1fc7442aaa2d))
 
 
