@@ -30,7 +30,13 @@
     </div>
   </body>
   <script>
-    const wxShare = window["kuan-wxShare"];
-    function test() {}
+    const wxShare = window['kuan-wxShare']
+    test()
+    function test() {
+      wxShare({
+        title: '标题',
+        desc: '这个是我的描述'
+      })
+    }
   </script>
 </html>
