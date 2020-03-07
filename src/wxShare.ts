@@ -52,6 +52,9 @@ function loadWechatJSSDK() {
  */
 async function getConfig(): Promise<WxConfig> {
   const href = window.location.href.split('#')[0]
+  if (!href.includes('//www.luzhongkuan.cn')) {
+    return Promise.reject(Error('没有加入分享配置'))
+  }
   const { data } = await axios({
     url: `//www.luzhongkuan.cn/api/wx/shareConfig?url=${encodeURIComponent(
       href
