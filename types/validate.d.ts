@@ -1,4 +1,5 @@
 export declare const isIOS: boolean;
+export declare const isIphoneX: boolean;
 export declare const isWx: boolean;
 export declare const isAliPay: boolean;
 /**
