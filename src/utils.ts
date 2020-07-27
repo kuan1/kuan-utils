@@ -25,6 +25,7 @@ import uploader from './uploader'
 import * as validate from './validate'
 import wxShare from './wxShare'
 import xlsx from './xlsx'
+import vconsole from './vconsole'
 
 export default {
   animationFrame,
@@ -54,4 +55,5 @@ export default {
   validate,
   wxShare,
   xlsx,
+  vconsole,
 }
