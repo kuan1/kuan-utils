@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>kuan-copy</title>
+    <title>kuan-createMonitor</title>
     <style>
       body {
         max-width: 600px;
@@ -22,22 +22,22 @@
     </style>
   </head>
   <body>
-    <h2>kuan-copy</h2>
+    <h2>kuan-createMonitor</h2>
     <div class="res">
-      <p>
-        <input readonly value="1234" type="text" />
-        <button onclick="copy()" class="set-btn">复制</button>
-      </p>
+      <button onclick="test()" class="set-btn">监控日志</button>
     </div>
   </body>
   <script>
-    const copy = window['kuan-copy']
+    const createMonitor = window['kuan-createMonitor']
 
-    const input = document.querySelector('input')
+    var a = createMonitor({
+      id: 'test2',
+      uin: 'kuan-utils 测试',
+      reportUrl: 'http://localhost:8001/api/monitor/add',
+    })
 
-    const key = 'test-key'
-    function copy() {
-      const success = copy(input.value)
+    function test() {
+      const success = copy()
       alert(success ? '成功' : '失败')
     }
   </script>

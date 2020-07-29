@@ -24,8 +24,8 @@ import throttle from './throttle'
 import uploader from './uploader'
 import * as validate from './validate'
 import wxShare from './wxShare'
-import xlsx from './xlsx'
 import vconsole from './vconsole'
+import createMonitor from './createMonitor'
 
 export default {
   animationFrame,
@@ -54,6 +54,7 @@ export default {
   uploader,
   validate,
   wxShare,
-  xlsx,
+  xlsx: {},
   vconsole,
+  createMonitor,
 }
