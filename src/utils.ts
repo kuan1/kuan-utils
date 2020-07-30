@@ -26,6 +26,7 @@ import * as validate from './validate'
 import wxShare from './wxShare'
 import vconsole from './vconsole'
 import createMonitor from './createMonitor'
+import preventTouchScroll from './preventTouchScroll'
 
 export default {
   animationFrame,
@@ -57,4 +58,5 @@ export default {
   xlsx: {},
   vconsole,
   createMonitor,
+  preventTouchScroll,
 }

@@ -1,3 +1,7 @@
+/**
+ * 前端监控
+ */
+
 namespace ErrorMonitor {
   interface OtherData {
     [x: string]: string

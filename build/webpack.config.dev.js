@@ -3,7 +3,7 @@ const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config.base')
 const { getHtmlPlugins } = require('./utils')
 
-const port = 8000
+const port = 9000
 
 module.exports = merge(baseConfig, {
   mode: 'development',

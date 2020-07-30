@@ -1,3 +1,6 @@
+/**
+ * 前端监控
+ */
 declare namespace ErrorMonitor {
     interface OtherData {
         [x: string]: string;
