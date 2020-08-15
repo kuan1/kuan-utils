@@ -21,8 +21,8 @@ let load: Promise<string | Error>
 
 // 动态加载xlsx插件
 async function loadXLSX() {
+  if (load) return load
   const xlsxDownloadURL = 'https://cdn.bootcdn.net/ajax/libs/xlsx/0.16.5/xlsx.full.min.js'
-  if (load) return xlsxDownloadURL
   load = createScript(xlsxDownloadURL)
   return load
 }
