@@ -1,6 +1,6 @@
 {
   "name": "kuan-utils",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "[简陋文档](https://www.kuan1.top/kuan-utils)",
   "main": "lib/utils.js",
   "scripts": {
