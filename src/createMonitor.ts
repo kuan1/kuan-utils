@@ -1,117 +1,151 @@
 /**
- * 前端监控
+ * js 错误上报
+ * [参考部分代码](https://github.com/LianjiaTech/fee/blob/master/sdk/lib/js-tracker/index.js)
  */
 
-namespace ErrorMonitor {
-  interface OtherData {
-    [x: string]: string
+namespace CreateReport {
+  export interface options {
+    pid: string
+    delay?: number
+    needReport?: Function
+  }
+  export interface loadErrorType {
+    readonly SCRIPT: number
+    readonly LINK: number
+    readonly IMG: number
+    readonly AUDIO: number
+    readonly VIDEO: number
   }
 
-  export interface Settings {
-    id: string
-    uin: string
-    reportUrl?: string
-    otherData?: OtherData
-  }
+  export type loadErrorKeys = keyof loadErrorType
 
-  export interface NewLog {
-    msg: string
-    target: string | undefined
-    rowNum: number
-    colRow: number
-    from?: string
+  export interface reportError {
+    type: number
+    desc: string
+    stack: string
   }
 }
 
 // 默认配置
-const defaultsSettings: ErrorMonitor.Settings = {
-  id: '',
-  uin: '',
-  reportUrl: '',
+const defaults: CreateReport.options = {
+  pid: 'test', // 项目名字
+  delay: 2000, // 延迟时间
+  needReport: () => true, // 是否需要上报
 }
 
-// 错误日志储存
-function processStackMsg(error: Error) {
-  let stack = (error.stack || '')
-    .replace(/\n/gi, '')
-    .split(/\bat\b/)
-    .slice(0, 9)
-    .join('@')
-    .replace(/\?[^:]+/gi, '')
-  const msg = error.toString()
-  return stack.indexOf(msg) < 0 ? `${msg}@${stack}` : stack
+// 前端错误类型
+enum JS_TRACKER_ERROR_MAP {
+  ERROR_RUNTIME = 1,
+  ERROR_SCRIPT = 2,
+  ERROR_STYLE = 3,
+  ERROR_IMAGE = 4,
+  ERROR_AUDIO = 5,
+  ERROR_VIDEO = 6,
+  ERROR_CONSOLE = 7,
+  ERROR_TRY_CATCH = 8,
 }
 
-function isOBJByType(o: string | Event, type: string) {
-  return Object.prototype.toString.call(o) === `[object ${type || 'Object'}]`
+// 资源加载错误
+const LOAD_ERROR_TYPE: CreateReport.loadErrorType = {
+  SCRIPT: JS_TRACKER_ERROR_MAP.ERROR_SCRIPT,
+  LINK: JS_TRACKER_ERROR_MAP.ERROR_STYLE,
+  IMG: JS_TRACKER_ERROR_MAP.ERROR_IMAGE,
+  AUDIO: JS_TRACKER_ERROR_MAP.ERROR_AUDIO,
+  VIDEO: JS_TRACKER_ERROR_MAP.ERROR_VIDEO,
 }
 
-class ErrorReportHandler {
-  private timer: any
-  private settings: ErrorMonitor.Settings
-  private logs: Array<ErrorMonitor.NewLog>
-  constructor(options: ErrorMonitor.Settings) {
-    this.settings = { ...defaultsSettings, ...options }
-    this.logs = []
-    this.handleError()
+// 上次上报时间
+class ErrorMonitor {
+  private lastReportTime: number
+  private options: CreateReport.options
+  private errors: CreateReport.reportError[]
+  constructor(options: CreateReport.options) {
+    this.errors = []
+    this.lastReportTime = 0
+    this.options = { ...defaults, ...options }
+    this.init()
   }
 
-  private handleError() {
-    if (!this.settings.reportUrl) return
-    window.onerror = (msg, url, line, col, error) => {
-      let newMsg = msg
-
-      if (error && error.stack) {
-        newMsg = processStackMsg(error)
+  private init() {
+    window.addEventListener('error', (event) => {
+      console.log('onerror触发')
+      const errorTarget = event.target || {}
+      const node = (errorTarget || {}) as Node
+      const nodeName = (node.nodeName || '').toUpperCase()
+      if (errorTarget !== window && nodeName && nodeName in LOAD_ERROR_TYPE) {
+        // 资源加载错误
+        const key = nodeName as CreateReport.loadErrorKeys
+        const anyNode = node as any
+        const data: CreateReport.reportError = {
+          type: LOAD_ERROR_TYPE[key],
+          desc: `${anyNode.baseURI}@${anyNode.src || anyNode.href}`,
+          stack: 'no stack',
+        }
+        this.report(data)
+      } else {
+        // runtime错误
+        const { message, filename, lineno, colno, error } = event
+        const data: CreateReport.reportError = {
+          type: JS_TRACKER_ERROR_MAP.ERROR_RUNTIME,
+          desc: `${message} at ${filename}:${lineno}:${colno}`,
+          stack: error && error.stack ? error.stack : 'no-stack',
+        }
+        this.report(data)
       }
+    })
 
-      if (isOBJByType(newMsg, 'Event')) {
-        const msg = newMsg as any
-        newMsg += msg.type
-          ? '--' + msg.type + '--' + (msg.target ? msg.target.tagName + '::' + msg.target.src : '')
-          : ''
-      }
-
-      const newLog: ErrorMonitor.NewLog = {
-        msg: (newMsg + '' || '').substr(0, 500),
-        target: url,
-        rowNum: line || 0,
-        colRow: col || 0,
-      }
-
-      // 避免重复添加
-      this.logs = this.logs.slice(0, 9)
-      if (this.logs.some((log) => log.msg === newLog.msg)) return
-      this.logs.unshift(newLog)
-      this.sendError()
-    }
+    window.addEventListener(
+      'unhandledrejection',
+      function (event) {
+        console.log(event)
+        // event.reason.message,
+        // event.reason.stack
+        // console.log('Unhandled Rejection at:', event.promise, 'reason:', event.reason)
+        // this.report({
+        //   type: JS_TRACKER_ERROR_MAP.ERROR_RUNTIME
+        // })
+        // handleError(event)
+      },
+      true
+    )
   }
-  sendError() {
-    if (this.timer) clearTimeout(this.timer)
-    this.timer = setTimeout(() => {
-      const { otherData = {}, id, uin, reportUrl } = this.settings
-      const stringify: string[] = []
-      stringify.push(`id=${id}`, `uin=${uin}`)
 
-      this.logs.forEach((newLog, i) => {
-        const params = { from: window.location.href, level: 0, ...newLog, ...otherData }
-        Object.keys(params).forEach((key) => {
-          const value = (params as any)[key]
-          stringify.push(`${key}[${i}]=${value}`)
-        })
-      })
-      const src = `${reportUrl}?${stringify.join('&')}`
-      const img = new Image()
-      img.src = src
-      this.logs = []
-    }, 1000)
+  report(data: CreateReport.reportError) {
+    // 又重复的错误不重复上报
+    if (this.errors.some((item) => item.desc)) return
+
+    // 保存最新的10条错误
+    this.errors.push(data)
+    this.errors = this.errors.slice(-10)
+
+    // 做一个简单节流
+    const now = new Date().getTime()
+    const { delay = 2000 } = this.options
+    if (now - delay < this.lastReportTime) return
+    this.lastReportTime = now
+
+    console.log('准备提交的内容', this.errors)
+    // const { otherData = {}, id, uin, reportUrl } = this.options
+    // const stringify: string[] = []
+    // stringify.push(`id=${id}`, `uin=${uin}`)
+    // this.logs.forEach((newLog, i) => {
+    //   const params = { from: window.location.href, level: 0, ...newLog, ...otherData }
+    //   Object.keys(params).forEach((key) => {
+    //     const value = (params as any)[key]
+    //     stringify.push(`${key}[${i}]=${value}`)
+    //   })
+    // })
+    // const src = `${reportUrl}?${stringify.join('&')}`
+    // const img = new Image()
+    // img.src = src
+    // this.logs = []
   }
 }
 
-// 暴露单例
-let errorReport: ErrorReportHandler
-export default (settings: ErrorMonitor.Settings) => {
+// 通过单例模式暴露
+let errorReport: ErrorMonitor
+export default (settings: CreateReport.options) => {
   if (errorReport) return errorReport
-  errorReport = new ErrorReportHandler(settings)
+  errorReport = new ErrorMonitor(settings)
   return errorReport
 }
