@@ -10,7 +10,7 @@ declare function getCookie(name: string): string;
  * @param {String} value
  * @param {Number} days
  */
-declare function setCookie(name: string, value: string | number, days?: number): void;
+declare function setCookie(name: string, value: string | number, days?: number, path?: string): void;
 /**
  * @desc 根据name删除cookie
  * @param  {String} name

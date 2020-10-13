@@ -24,11 +24,11 @@ export function getLocalData(key: string) {
     const { value, maxAge, timestamp } = JSON.parse(dataStr)
     const data = maxAge + timestamp > Date.now() ? value : null
     if (!data) localStorage.removeItem(key) // 超时删除缓存
-    return data || {}
+    return data
   } catch (e) {
     console.error(e)
     localStorage.removeItem(key)
-    return {}
+    return null
   }
 }
 /**
