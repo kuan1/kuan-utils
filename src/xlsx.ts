@@ -22,7 +22,7 @@ let load: Promise<string | Error>
 // 动态加载xlsx插件
 async function loadXLSX() {
   if (load) return load
-  const xlsxDownloadURL = 'https://cdn.bootcdn.net/ajax/libs/xlsx/0.16.5/xlsx.full.min.js'
+  const xlsxDownloadURL = 'https://img1.halobear.com/upload_page/Fl8mbXNW9SRaS3HJj23aZcdvRg3N.js'
   load = createScript(xlsxDownloadURL)
   return load
 }
